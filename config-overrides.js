@@ -8,6 +8,7 @@ module.exports = function override(config) {
     '@pages': 'src/pages',
     '@store': 'src/store',
     '@utils': 'src/utils',
+    '@constants': 'src/constants/constants',
   })(config);
 
   return config;
