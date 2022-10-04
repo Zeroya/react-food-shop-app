@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-const OrderSummary = () => {
+const OrderSummary: FC = () => {
   return <div>OrderSummary</div>;
 };
 

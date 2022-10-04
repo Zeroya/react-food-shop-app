@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-const ProductsHeader = () => {
+const ProductsHeader: FC = () => {
   return <div>ProductsHeader</div>;
 };
 
