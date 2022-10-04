@@ -15,6 +15,7 @@
       "@store/*": ["store/*"],
       "@redux/*": ["redux/*"],
       "@utils/*": ["utils/*"],
+      "@constants*": ["constants/constants"]
     },
     "allowJs": true,
     "skipLibCheck": true,
