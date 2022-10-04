@@ -10,7 +10,7 @@ const AllProducts: FC = () => {
       <BreadCrumb />
       <ProductsHeader />
       <Categories />
-      <Categories />
+      <Cards />
     </div>
   );
 };
