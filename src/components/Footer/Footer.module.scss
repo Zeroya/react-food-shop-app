@@ -1,0 +1,46 @@
+@import '../../styles/variables.scss';
+
+.footer {
+  margin: 64px 0 64px 0;
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__section p {
+      color: $greenText;
+    }
+  }
+
+  .tags {
+    margin-bottom: 50px;
+
+    &__list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    &__shape {
+      background: $bgTags;
+      border-radius: 12px;
+      padding: 4px 10px;
+    }
+
+    &__text {
+      margin: 0;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+  }
+
+  .copyright {
+    padding-bottom: 50px;
+  }
+}

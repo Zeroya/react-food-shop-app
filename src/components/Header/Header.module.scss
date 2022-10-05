@@ -1,0 +1,122 @@
+@import '../../styles/variables.scss';
+
+.header {
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__reference {
+      color: black;
+      font-size: 12px;
+      margin: 0 33px 12px 0;
+    }
+
+    &__contacts {
+      display: flex;
+
+      & p:first-child {
+        color: $greenText;
+      }
+    }
+
+    &__links {
+      display: flex;
+
+      & a {
+        color: $greenText;
+      }
+
+      & a:last-child {
+        margin-right: 0;
+      }
+    }
+
+    & p {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      margin-right: 33px;
+    }
+  }
+
+  & hr {
+    margin: 0;
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+
+  .search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 13px 0 18px 0;
+
+    &__icons {
+      display: flex;
+
+      &_width {
+        font-size: 30px;
+        padding-top: 8px;
+      }
+    }
+
+    &__input input {
+      background-color: $bgInput;
+    }
+
+    &__input div {
+      background-color: $bgInput  !important;
+      border-top-left-radius: 1em !important;
+      border-bottom-left-radius: 1em !important;
+      color: black !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      height: 42px !important;
+
+      & span {
+        padding-top: 0.2em !important;
+      }
+    }
+
+    &__input_form {
+      background: $bgInput;
+      height: 42px;
+      width: 300px;
+      border-top-right-radius: 1em !important;
+      border-bottom-right-radius: 1em !important;
+    }
+
+
+    &__icons img {
+      height: 35px;
+    }
+
+  }
+
+  .select {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 55px;
+    background-color: $bgInput;
+
+    &__dropdown {
+      width: "auto";
+      font-weight: 800;
+      font-size: 18px;
+      color: "#151515";
+      font-family: "Poppins";
+    }
+  }
+
+
+}
