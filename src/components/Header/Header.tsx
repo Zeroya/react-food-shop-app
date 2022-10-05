@@ -2,65 +2,66 @@ import React, { FC } from "react";
 import frechnesecom from "@assets/icons/Freshnesecom.svg";
 import human from "@assets/icons/human.png";
 import { Input, Select } from "antd";
-import { selectArr } from "@constants";
+import { product, checkout } from "@constants";
+import { selectArr } from "mockedData/mockedData";
 import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import s from "./Header.module.scss";
+import { Link } from "react-router-dom";
 
 const Header: FC = () => {
   const { Option } = Select;
 
   return (
     <div className={s.header}>
-      <div className={s.infoBlock}>
-        <div className={s.infoBlock_contacts}>
+      <div className={s.info}>
+        <div className={s.info__contacts}>
           <p>Chat with us</p>
-          <p>+420 336 775 664</p>
-          <p>info@freshnesecom.com</p>
+          <a href="tel:+420336775664">+420 336 775 664</a>
+          <a href="mailto:info@freshnesecom.com">info@freshnesecom.com</a>
         </div>
-        <div className={s.infoBlock_links}>
-          <p>Blog</p>
-          <p>About Us</p>
-          <p>Careers</p>
+        <div className={s.info__links}>
+          <Link to="/">Blog</Link>
+          <Link to={product + 1234}>About Us</Link>
+          <Link to={checkout}>Careers</Link>
         </div>
       </div>
       <hr />
-      <div className={s.searchBlock}>
-        <div className={s.searchBlock_logoText}>
+      <div className={s.search}>
+        <div className={s.search__logo}>
           <img src={frechnesecom} />
         </div>
-        <div className={s.searchBlock_input}>
+        <div className={s.search__input}>
           <Input.Group compact>
-            <Select className={s.searchBlock_input_select} defaultValue="All categories">
+            <Select className={s.search__select} defaultValue="All categories">
               <Option value="Option1">Option1</Option>
               <Option value="Option2">Option2</Option>
             </Select>
             <Input
               style={{ width: "50%" }}
               suffix={<SearchOutlined />}
-              className={s.searchBlock_input_search}
+              className={s.search__input_form}
               placeholder="Search Products, categories ..."
             />
           </Input.Group>
         </div>
-        <div className={s.searchBlock_icons}>
+        <div className={s.search__icons}>
           <img src={human} />
-          <ShoppingCartOutlined style={{ fontSize: "30px", paddingTop: "8px" }} />
+          <ShoppingCartOutlined className={s.search__icons_width} />
         </div>
       </div>
-      <div className={s.selectBlock}>
-        {selectArr.map((el) => {
-          return (
-            <Select
-              defaultValue={el}
-              bordered={false}
-              style={{ width: "auto", fontWeight: 800, fontSize: 18, color: "#151515", fontFamily: "Poppins" }}
-            >
-              <Option value="option 1">option 1</Option>
-              <Option value="option 2">option 2</Option>
-              <Option value="option 3">option 3</Option>
-            </Select>
-          );
-        })}
+      <div className={s.select}>
+        {selectArr.map((el) => (
+          <Select
+            key={el}
+            defaultValue={el}
+            bordered={false}
+            style={{ width: "auto", fontWeight: 800, fontSize: 18, color: "#151515", fontFamily: "Poppins" }}
+          >
+            <Option value="option 1">option 1</Option>
+            <Option value="option 2">option 2</Option>
+            <Option value="option 3">option 3</Option>
+          </Select>
+        ))}
       </div>
     </div>
   );

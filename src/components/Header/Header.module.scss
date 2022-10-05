@@ -1,25 +1,34 @@
+@import '../../styles/variables.scss';
+
 .header {
-  .infoBlock {
+  .info {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
 
-    &_contacts {
+    & a {
+      color: black;
+      font-size: 12px;
+      margin: 0 33px 12px 0;
+    }
+
+    &__contacts {
       display: flex;
 
       & p:first-child {
-        color: #6A983C;
+        color: $greenText;
       }
     }
 
-    &_links {
+    &__links {
       display: flex;
 
-      & p {
-        color: #6A983C;
+      & a {
+        color: $greenText;
       }
 
-      & p:last-child {
+      & a:last-child {
         margin-right: 0;
       }
     }
@@ -43,23 +52,28 @@
   }
 
 
-  .searchBlock {
+  .search {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     margin: 13px 0 18px 0;
 
-    &_icons {
+    &__icons {
       display: flex;
+
+      &_width {
+        font-size: 30px;
+        padding-top: 8px;
+      }
     }
 
-    &_input input {
-      background-color: #F9F9F9;
+    &__input input {
+      background-color: $bgInput;
     }
 
-    &_input div {
-      background-color: #F9F9F9 !important;
+    &__input div {
+      background-color: $bgInput  !important;
       border-top-left-radius: 1em !important;
       border-bottom-left-radius: 1em !important;
       color: black !important;
@@ -72,8 +86,8 @@
       }
     }
 
-    &_input_search {
-      background: #F9F9F9;
+    &__input_form {
+      background: $bgInput;
       height: 42px;
       width: 300px !important;
       border-top-right-radius: 1em !important;
@@ -81,19 +95,19 @@
     }
 
 
-    &_icons img {
+    &__icons img {
       height: 35px;
     }
 
   }
 
-  .selectBlock {
+  .select {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
     height: 55px;
-    background-color: #F9F9F9;
+    background-color: $bgInput;
   }
 
 

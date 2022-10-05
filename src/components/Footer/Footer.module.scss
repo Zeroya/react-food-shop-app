@@ -1,43 +1,46 @@
+@import '../../styles/variables.scss';
+
 .footer {
   margin: 64px 0 64px 0;
 
-  .infoBlock {
+  .info {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 
-    &_section p {
-      color: #6A983C;
+    &__section p {
+      color: $greenText;
     }
   }
 
-  .tagsBlock {
+  .tags {
     margin-bottom: 50px;
 
-    &_list {
+    &__list {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-
-      &>div {
-        background: #F5F5F5;
-        border-radius: 12px;
-        padding: 4px 10px;
-
-        &>p {
-          margin: 0;
-          font-family: 'Poppins';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 13px;
-          line-height: 18px;
-        }
-      }
     }
+
+    &__shape {
+      background: $bgTags;
+      border-radius: 12px;
+      padding: 4px 10px;
+    }
+
+    &__text {
+      margin: 0;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 18px;
+    }
+
   }
 
-  .CopyrightBlock {
+  .copyright {
     padding-bottom: 50px;
   }
 }
