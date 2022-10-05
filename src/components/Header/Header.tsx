@@ -37,7 +37,6 @@ const Header: FC = () => {
               <Option value="Option2">Option2</Option>
             </Select>
             <Input
-              style={{ width: "50%" }}
               suffix={<SearchOutlined />}
               className={s.search__input_form}
               placeholder="Search Products, categories ..."
