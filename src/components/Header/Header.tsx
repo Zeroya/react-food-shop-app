@@ -51,12 +51,7 @@ const Header: FC = () => {
       </div>
       <div className={s.select}>
         {selectArr.map((el) => (
-          <Select
-            key={el}
-            defaultValue={el}
-            bordered={false}
-            style={{ width: "auto", fontWeight: 800, fontSize: 18, color: "#151515", fontFamily: "Poppins" }}
-          >
+          <Select key={el} defaultValue={el} bordered={false} className={s.select__dropdown}>
             <Option value="option 1">option 1</Option>
             <Option value="option 2">option 2</Option>
             <Option value="option 3">option 3</Option>

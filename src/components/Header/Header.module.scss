@@ -108,6 +108,14 @@
     align-items: center;
     height: 55px;
     background-color: $bgInput;
+
+    &__dropdown {
+      width: "auto";
+      font-weight: 800;
+      font-size: 18px;
+      color: "#151515";
+      font-family: "Poppins";
+    }
   }
 
 
