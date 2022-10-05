@@ -16,13 +16,23 @@ const Header: FC = () => {
       <div className={s.info}>
         <div className={s.info__contacts}>
           <p>Chat with us</p>
-          <a href="tel:+420336775664">+420 336 775 664</a>
-          <a href="mailto:info@freshnesecom.com">info@freshnesecom.com</a>
+          <a className={s.info__reference} href="tel:+420336775664">
+            +420 336 775 664
+          </a>
+          <a className={s.info__reference} href="mailto:info@freshnesecom.com">
+            info@freshnesecom.com
+          </a>
         </div>
         <div className={s.info__links}>
-          <Link to="/">Blog</Link>
-          <Link to={product + 1234}>About Us</Link>
-          <Link to={checkout}>Careers</Link>
+          <Link className={s.info__reference} to="/">
+            Blog
+          </Link>
+          <Link className={s.info__reference} to={product + 1234}>
+            About Us
+          </Link>
+          <Link className={s.info__reference} to={checkout}>
+            Careers
+          </Link>
         </div>
       </div>
       <hr />
