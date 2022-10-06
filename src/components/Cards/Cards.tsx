@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import { Rate } from "antd";
+import { calcDiscountPrice } from "@utils/calcDiscountPrice";
 import { FoodApi } from "services/FoodService";
 import { HeartOutlined } from "@ant-design/icons";
 import s from "./Cards.module.scss";
 
 const Cards: FC = () => {
   const { data, isLoading, error } = FoodApi.useFetchAllFreshFoodQuery();
-  console.log(data);
   return (
     <div className={s.cards}>
       <div className={s.cards__item}>
@@ -37,9 +37,7 @@ const Cards: FC = () => {
             </div>
             <div className={s.card__checkout}>
               <div className={s.card__price}>
-                <p className={s.card__title}>
-                  {(Number(el.price) - (Number(el.price) / 100) * el.discount).toFixed(2)} USD
-                </p>
+                <p className={s.card__title}>{calcDiscountPrice(el.price, el.discount)} USD</p>
                 <p className={s.card_lineThrough}>{el.price}</p>
               </div>
               <div className={s.card__delivery}>
