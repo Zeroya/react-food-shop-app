@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(FoodApi.middleware),
+  middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), FoodApi.middleware],
 });
 
 export type RootState = ReturnType<typeof store.getState>;

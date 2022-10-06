@@ -19,21 +19,21 @@ const Cards: FC = () => {
               <h3 className={s.card__title}>{el.name}</h3>
               <p className={s.card__simpleText}>{el.description.slice(0, 20).trim().concat("...")}</p>
               <Rate disabled defaultValue={el.popularity} className={s.card__stars} />
-              <div className={s.card__info}>
-                <p className={s.card_lightText}>
+              <ul className={s.card__info}>
+                <li className={s.card_lightText}>
                   Fresheness <span className={s.card__span}>...</span> {el.fresheness}
-                </p>
-                <p className={s.card_lightText}>
+                </li>
+                <li className={s.card_lightText}>
                   Farm <span className={s.card__span}>...........</span> {el.farm}
-                </p>
-                <p className={s.card_lightText}>
+                </li>
+                <li className={s.card_lightText}>
                   Delivery <span className={s.card__span}>......</span> Europe
-                </p>
-                <p className={s.card_lightText}>
+                </li>
+                <li className={s.card_lightText}>
                   Stock <span className={s.card__span}>..........</span>{" "}
                   <span className={s.card_greenColor}>{el.stock} pcs</span>
-                </p>
-              </div>
+                </li>
+              </ul>
             </div>
             <div className={s.card__checkout}>
               <div className={s.card__price}>

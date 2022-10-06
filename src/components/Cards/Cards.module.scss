@@ -66,6 +66,8 @@
 
   &__info {
     margin-top: 20px;
+    padding: 0;
+    list-style: none;
   }
 
   &_lightText {
@@ -83,7 +85,7 @@
   }
 
   &_greenColor {
-    color: #6A983C;
+    color: $cardButton;
   }
 
   &_lineThrough {
