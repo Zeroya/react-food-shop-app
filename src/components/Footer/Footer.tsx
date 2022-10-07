@@ -16,7 +16,7 @@ const Footer: FC = () => {
         ))}
       </div>
       <div className={s.tags}>
-        <h2>Product tags</h2>
+        <h2 className={s.tags__header}>Product tags</h2>
         <div className={s.tags__list}>
           {tagsArr.map((tag) => (
             <div className={s.tags__shape} key={tag}>

@@ -10,11 +10,24 @@
 
     &__section p {
       color: $greenText;
+      margin-bottom: 14px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    &__section h2 {
+      margin-bottom: 10px;
     }
   }
 
   .tags {
-    margin-bottom: 50px;
+    margin: 20px 0 50px 0;
+
+    &__header {
+      padding-bottom: 20px;
+    }
 
     &__list {
       display: flex;

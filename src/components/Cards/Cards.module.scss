@@ -16,7 +16,7 @@
   border: 1px solid $cardBorder;
   border-radius: 1em;
   margin-bottom: 2em;
-  max-width: 1000px;
+  max-width: 850px;
 
   &__img {
     width: 268px;
@@ -32,8 +32,10 @@
   }
 
   &__body {
-    margin: 32px 0 32px 32px;
-    width: 300px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 2em;
   }
 
   &__title {
@@ -64,6 +66,11 @@
     }
   }
 
+  &__price,
+  &__delivery {
+    margin-bottom: 1em;
+  }
+
   &_lightText {
     font-family: 'Open Sans';
     font-style: normal;
@@ -73,13 +80,20 @@
     color: $cardLightText;
   }
 
+  &__info {
+    min-width: 190px;
+  }
+
+  &__checkout {
+    min-width: 145px;
+  }
+
   &__list {
     margin-top: 20px;
     padding: 0;
     list-style: none;
 
     &_overflow {
-
       display: inline-block;
       width: 60px;
       margin: 0 1em 0 0;
@@ -89,6 +103,7 @@
 
     &_spanBlock {
       display: inline-block;
+      margin: 0;
       vertical-align: top;
     }
 
@@ -104,10 +119,7 @@
   &_lineThrough {
     text-decoration: line-through;
     color: $cardLineThrough;
-  }
-
-  &__checkout {
-    margin-top: 32px;
+    margin: 0;
   }
 
   &__buttons {
@@ -132,7 +144,6 @@
 
   &__wishButton {
     padding: 6px 12px;
-    margin-bottom: 1em;
     background: $bgTags;
     border-radius: 12px;
     border: $bgTags;
@@ -154,10 +165,23 @@
   }
 
   &_deliveryFontInfo {
+    margin: 0;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
+  }
+}
+
+
+@media screen and (max-width: 910px) {
+  .card {
+    flex-direction: column;
+
+    &__img {
+      width: 100%;
+      justify-content: flex-end;
+    }
   }
 }
