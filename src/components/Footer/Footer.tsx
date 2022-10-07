@@ -7,12 +7,12 @@ const Footer: FC = () => {
     <div className={s.footer}>
       <div className={s.info}>
         {infoArr.map((el) => (
-          <div key={el.header} className={s.info__section}>
-            <h2>{el.header}</h2>
+          <ul key={el.header} className={s.info__section}>
+            <li>{el.header}</li>
             {el.text.map((text) => (
-              <p key={text}>{text}</p>
+              <li key={text}>{text}</li>
             ))}
-          </div>
+          </ul>
         ))}
       </div>
       <div className={s.tags}>
