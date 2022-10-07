@@ -57,21 +57,14 @@
   }
 
   &__stars {
-    color: $cardTitle  !important;
+    color: $cardTitle !important;
 
     & span svg {
       width: 17px;
     }
   }
 
-  &__info {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
-  }
-
   &_lightText {
-    margin: 0 0 9px 0;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -80,8 +73,28 @@
     color: $cardLightText;
   }
 
-  &__span {
-    visibility: hidden;
+  &__list {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+
+    &_overflow {
+
+      display: inline-block;
+      width: 60px;
+      margin: 0 1em 0 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &_spanBlock {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    &_height {
+      height: 2em;
+    }
   }
 
   &_greenColor {

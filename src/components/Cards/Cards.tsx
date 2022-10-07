@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Rate } from "antd";
 import { calcDiscountPrice } from "@utils/calcDiscountPrice";
+import { firstLetterStrUpperCase } from "@utils/firstLetterStrUpperCase";
 import { FoodApi } from "services/FoodService";
 import { HeartOutlined } from "@ant-design/icons";
 import s from "./Cards.module.scss";
@@ -16,22 +17,25 @@ const Cards: FC = () => {
               <img src={`https://spoonacular.com/cdn/ingredients_500x500/${el.image}`} alt="" />
             </div>
             <div className={s.card__body}>
-              <h3 className={s.card__title}>{el.name}</h3>
+              <h3 className={s.card__title}>{firstLetterStrUpperCase(el.name)}</h3>
               <p className={s.card__simpleText}>{el.description.slice(0, 20).trim().concat("...")}</p>
               <Rate disabled defaultValue={el.popularity} className={s.card__stars} />
-              <ul className={s.card__info}>
-                <li className={s.card_lightText}>
-                  Fresheness <span className={s.card__span}>...</span> {el.fresheness}
+              <ul className={s.card__list}>
+                <li className={`${s.card_lightText} ${s.card__list_height}`}>
+                  <p className={s.card__list_overflow}> Fresheness </p>
+                  <p className={s.card__list_spanBlock}> {firstLetterStrUpperCase(el.fresheness)} </p>
                 </li>
-                <li className={s.card_lightText}>
-                  Farm <span className={s.card__span}>...........</span> {el.farm}
+                <li className={`${s.card_lightText} ${s.card__list_height}`}>
+                  <p className={s.card__list_overflow}>Farm</p>
+                  <p className={s.card__list_spanBlock}>{el.farm}</p>
                 </li>
-                <li className={s.card_lightText}>
-                  Delivery <span className={s.card__span}>......</span> Europe
+                <li className={`${s.card_lightText} ${s.card__list_height}`}>
+                  <p className={s.card__list_overflow}>Delivery</p>
+                  <p className={s.card__list_spanBlock}>Europe</p>
                 </li>
-                <li className={s.card_lightText}>
-                  Stock <span className={s.card__span}>..........</span>{" "}
-                  <span className={s.card_greenColor}>{el.stock} pcs</span>
+                <li className={`${s.card_lightText} ${s.card__list_height}`}>
+                  <p className={s.card__list_overflow}>Stock</p>
+                  <p className={`${s.card_greenColor} ${s.card__list_spanBlock}`}>{el.stock} pcs</p>
                 </li>
               </ul>
             </div>
