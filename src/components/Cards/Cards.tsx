@@ -11,11 +11,11 @@ const Cards: FC = () => {
   const dispatch = useAppDispatch();
   const searchedValue = useAppSelector((state) => state.food.searchValue);
   const cards = useAppSelector((state) => state.food.cards);
-  const { data, isLoading, error } = FoodApi.useFetchAllFreshFoodQuery();
+  const { data: allFreshFood, isLoading, error } = FoodApi.useFetchAllFreshFoodQuery();
 
   useEffect(() => {
-    data && dispatch(setCards(data));
-  }, [data]);
+    allFreshFood && dispatch(setCards(allFreshFood));
+  }, [allFreshFood]);
 
   return (
     <div className={s.cards}>

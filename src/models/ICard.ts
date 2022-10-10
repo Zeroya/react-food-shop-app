@@ -22,8 +22,10 @@ export interface ICard {
 
 export interface IDropDown {
   tag: string;
-  menu: Array<{
-    label: string;
-    key: string;
-  }>;
+  menu: IDropDownMenu[];
+}
+
+interface IDropDownMenu {
+  label: string;
+  key: string;
 }
