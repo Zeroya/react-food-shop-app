@@ -3,7 +3,7 @@ import { FoodApi } from "services/FoodService";
 import userReducer from "./reducers/UserSlice";
 
 const rootReducer = combineReducers({
-  value: userReducer,
+  food: userReducer,
   [FoodApi.reducerPath]: FoodApi.reducer,
 });
 

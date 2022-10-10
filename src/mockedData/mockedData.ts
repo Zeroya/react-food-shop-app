@@ -1,12 +1,177 @@
-export const selectArr: Array<string> = [
-  "Electronics",
-  "Food",
-  "Clothes",
-  "Skin and care",
-  "Toys",
-  "Special nutritian",
-  "Sports and outdoors",
-  "Books",
+import { IDropDown } from "@models/ICard";
+
+export const selectArr: Array<IDropDown> = [
+  {
+    tag: "Fish",
+    menu: [
+      {
+        label: "Grocery Tarm Fields",
+        key: "1",
+      },
+      {
+        label: "ArabVanya",
+        key: "2",
+      },
+      {
+        label: "Iuda Production",
+        key: "3",
+      },
+      {
+        label: "Lanselot Farm",
+        key: "4",
+      },
+      {
+        label: "Tor Farm",
+        key: "5",
+      },
+    ],
+  },
+  {
+    tag: "Herbs",
+    menu: [
+      {
+        label: "Grocery Tarm Fields",
+        key: "1",
+      },
+      {
+        label: "ArabVanya",
+        key: "2",
+      },
+      {
+        label: "Iuda Production",
+        key: "3",
+      },
+      {
+        label: "Lanselot Farm",
+        key: "4",
+      },
+      {
+        label: "Tor Farm",
+        key: "5",
+      },
+    ],
+  },
+  {
+    tag: "Vegetables",
+    menu: [
+      {
+        label: "Grocery Tarm Fields",
+        key: "1",
+      },
+      {
+        label: "ArabVanya",
+        key: "2",
+      },
+      {
+        label: "Iuda Production",
+        key: "3",
+      },
+      {
+        label: "Lanselot Farm",
+        key: "4",
+      },
+      {
+        label: "Tor Farm",
+        key: "5",
+      },
+    ],
+  },
+  {
+    tag: "Fruits",
+    menu: [
+      {
+        label: "Grocery Tarm Fields",
+        key: "1",
+      },
+      {
+        label: "ArabVanya",
+        key: "2",
+      },
+      {
+        label: "Iuda Production",
+        key: "3",
+      },
+      {
+        label: "Lanselot Farm",
+        key: "4",
+      },
+      {
+        label: "Tor Farm",
+        key: "5",
+      },
+    ],
+  },
+  {
+    tag: "Pasta",
+    menu: [
+      {
+        label: "Grocery Tarm Fields",
+        key: "1",
+      },
+      {
+        label: "ArabVanya",
+        key: "2",
+      },
+      {
+        label: "Iuda Production",
+        key: "3",
+      },
+      {
+        label: "Lanselot Farm",
+        key: "4",
+      },
+      {
+        label: "Tor Farm",
+        key: "5",
+      },
+    ],
+  },
+  {
+    tag: "Cheese",
+    menu: [
+      {
+        label: "Grocery Tarm Fields",
+        key: "1",
+      },
+      {
+        label: "ArabVanya",
+        key: "2",
+      },
+      {
+        label: "Iuda Production",
+        key: "3",
+      },
+      {
+        label: "Lanselot Farm",
+        key: "4",
+      },
+      {
+        label: "Tor Farm",
+        key: "5",
+      },
+    ],
+  },
+  {
+    tag: "Fresheness",
+    menu: [
+      {
+        label: "Extra fresh",
+        key: "1",
+      },
+      {
+        label: "fresh",
+        key: "2",
+      },
+      {
+        label: "Not fresh",
+        key: "3",
+      },
+      {
+        label: "Ultra fresh",
+        key: "4",
+      },
+    ],
+  },
 ];
 
 export const infoArr: Array<{ header: string; text: Array<string> }> = [
