@@ -19,3 +19,13 @@ export interface ICard {
   discount: number;
   id: string;
 }
+
+export interface IDropDown {
+  tag: string;
+  menu: IDropDownMenu[];
+}
+
+interface IDropDownMenu {
+  label: string;
+  key: string;
+}

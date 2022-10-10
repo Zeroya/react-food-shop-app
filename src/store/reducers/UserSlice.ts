@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "@store/store";
+import { ICard } from "@models/ICard";
 
 interface ShopState {
-  value: number;
+  cards: Array<ICard>;
+  searchValue: string;
 }
 
 const initialState: ShopState = {
-  value: 0,
+  cards: [],
+  searchValue: "",
 };
 
 export const counterSlice = createSlice({
@@ -15,12 +18,15 @@ export const counterSlice = createSlice({
 
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    setCards: (state, action: PayloadAction<ICard[]>) => {
+      state.cards = action.payload;
+    },
+    addSearchValue: (state, action: PayloadAction<string>) => {
+      state.searchValue = action.payload;
     },
   },
 });
 
-export const { increment } = counterSlice.actions;
+export const { setCards, addSearchValue } = counterSlice.actions;
 
 export default counterSlice.reducer;

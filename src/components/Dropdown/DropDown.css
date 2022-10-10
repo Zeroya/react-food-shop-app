@@ -1,0 +1,18 @@
+@import '../../styles/antdVariables.css';
+
+
+.ant-space-item {
+  color: black;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-size: 17px;
+  font-weight: 600;
+ }
+
+ .ant-space-item span {
+  color: var(--color-dropDown-mark);
+ }
+
+ .anticon-down svg {
+  height: 12px;
+ }

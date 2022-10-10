@@ -1,15 +1,28 @@
-import React, { FC } from "react";
+import React, { FC, ChangeEvent, useState, useEffect } from "react";
 import frechnesecom from "@assets/icons/Freshnesecom.svg";
 import human from "@assets/icons/human.png";
 import { Input, Select } from "antd";
+import { useAppDispatch } from "@hooks/hooks";
+import { addSearchValue } from "@store/reducers/UserSlice";
 import { product, checkout } from "@constants";
 import { selectArr } from "mockedData/mockedData";
 import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import s from "./Header.module.scss";
 import { Link } from "react-router-dom";
+import DropDown from "@components/Dropdown/Dropdown";
 
 const Header: FC = () => {
+  const dispatch = useAppDispatch();
+  const [search, setSearch] = useState("");
   const { Option } = Select;
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setSearch(e.target.value);
+  };
+
+  useEffect(() => {
+    dispatch(addSearchValue(search));
+  }, [search]);
 
   return (
     <div className={s.header}>
@@ -47,6 +60,8 @@ const Header: FC = () => {
               <Option value="Option2">Option2</Option>
             </Select>
             <Input
+              value={search}
+              onChange={handleChange}
               suffix={<SearchOutlined />}
               className={s.search__input_form}
               placeholder="Search Products, categories ..."
@@ -60,11 +75,7 @@ const Header: FC = () => {
       </div>
       <div className={s.select}>
         {selectArr.map((el) => (
-          <Select key={el} defaultValue={el} bordered={false} className={s.select__dropdown}>
-            <Option value="option 1">option 1</Option>
-            <Option value="option 2">option 2</Option>
-            <Option value="option 3">option 3</Option>
-          </Select>
+          <DropDown tag={el.tag} menu={el.menu} />
         ))}
       </div>
     </div>
