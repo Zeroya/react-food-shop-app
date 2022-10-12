@@ -52,7 +52,7 @@ export const selectArr: Array<IDropDown> = [
     ],
   },
   {
-    tag: "Vegetables",
+    tag: "Vegetable",
     menu: [
       {
         label: "Grocery Tarm Fields",
@@ -152,23 +152,27 @@ export const selectArr: Array<IDropDown> = [
     ],
   },
   {
-    tag: "Fresheness",
+    tag: "Main dish",
     menu: [
       {
-        label: "Extra fresh",
+        label: "Grocery Tarm Fields",
         key: "1",
       },
       {
-        label: "fresh",
+        label: "ArabVanya",
         key: "2",
       },
       {
-        label: "Not fresh",
+        label: "Iuda Production",
         key: "3",
       },
       {
-        label: "Ultra fresh",
+        label: "Lanselot Farm",
         key: "4",
+      },
+      {
+        label: "Tor Farm",
+        key: "5",
       },
     ],
   },
@@ -203,3 +207,27 @@ export const tagsArr: Array<string> = [
   "Fresh food",
   "Lemons",
 ];
+
+export const categoriesArr: Array<{ value: string; checked: boolean }> = [
+  { value: "Fish", checked: false },
+  { value: "Vegetable", checked: false },
+  { value: "Fruit", checked: false },
+  { value: "Pasta", checked: false },
+];
+
+export const brandArr: Array<{ value: string; checked: boolean }> = [
+  { value: "Grocery Tarm Fields", checked: false },
+  { value: "ArabVanya", checked: false },
+  { value: "Iuda Production", checked: false },
+  { value: "Lanselot Farm", checked: false },
+  { value: "Tor Farm", checked: false },
+];
+export const starsArr: Array<{ value: number; checked: boolean }> = [
+  { value: 5, checked: false },
+  { value: 4, checked: false },
+  { value: 3, checked: false },
+  { value: 2, checked: false },
+  { value: 1, checked: false },
+];
+
+export const searchArr: Array<string> = ["Fish", "Herbs", "Vegetable", "Fruit", "Pasta", "Cheese", "Main dish"];

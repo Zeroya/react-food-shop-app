@@ -18,11 +18,13 @@ const Footer: FC = () => {
       <div className={s.tags}>
         <h2 className={s.tags__header}>Product tags</h2>
         <div className={s.tags__list}>
-          {tagsArr.map((tag) => (
-            <div className={s.tags__shape} key={tag}>
-              <p className={s.tags__text}>{tag}</p>
-            </div>
-          ))}
+          <ul>
+            {tagsArr.map((tag) => (
+              <li className={s.tags__shape} key={tag}>
+                <p className={s.tags__text}>{tag}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <div className={s.copyright}>

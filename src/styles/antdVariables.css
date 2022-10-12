@@ -1,3 +1,9 @@
 :root {
   --color-dropDown-mark: #6A983C;
+  --color-checkbox-mark: #FDFDFD;
+  --color-slider-handle:rgb(155, 152, 152);
+  --color-ant-input-number:rgba(255, 255, 255, 0) ;
+  --color-ant-input-number-wrap :#F9F9F9 ;
+  --color-ant-input-number-border:#D1D1D1 ;
+  --color-ant-input-number-text:#A9A9A9;
 }

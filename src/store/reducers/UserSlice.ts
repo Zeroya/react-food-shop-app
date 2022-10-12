@@ -1,16 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "@store/store";
-import { ICard } from "@models/ICard";
+import { ICard, IFilterData } from "@models/ICard";
 
 interface ShopState {
   cards: Array<ICard>;
   searchValue: string;
+  filterValues: IFilterData;
+  dropDownValue: Array<string>;
 }
 
 const initialState: ShopState = {
   cards: [],
   searchValue: "",
+  filterValues: {
+    category: [],
+    brand: [],
+    rating: [],
+    priceMin: 20,
+    priceMax: 70,
+  },
+  dropDownValue: [],
 };
 
 export const counterSlice = createSlice({
@@ -24,9 +34,19 @@ export const counterSlice = createSlice({
     addSearchValue: (state, action: PayloadAction<string>) => {
       state.searchValue = action.payload;
     },
+    addFilterValues: (state, action: PayloadAction<IFilterData>) => {
+      state.filterValues = action.payload;
+    },
+    addDropDownValues: (state, action: PayloadAction<Array<string>>) => {
+      state.dropDownValue = action.payload;
+    },
+    resetDropDownValues: (state) => {
+      state.dropDownValue = [];
+    },
   },
 });
 
-export const { setCards, addSearchValue } = counterSlice.actions;
+export const { setCards, addSearchValue, addFilterValues, addDropDownValues, resetDropDownValues } =
+  counterSlice.actions;
 
 export default counterSlice.reducer;

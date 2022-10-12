@@ -1,10 +1,21 @@
 .cards {
   display: flex;
   flex-direction: column;
-  width: 100%;
 
   &__item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  &__spiner {
+    position: relative;
+
+    & span {
+      position: absolute;
+      top: 5em;
+      left: 15em;
+    }
   }
 }

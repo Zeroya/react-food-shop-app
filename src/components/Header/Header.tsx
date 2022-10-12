@@ -3,9 +3,9 @@ import frechnesecom from "@assets/icons/Freshnesecom.svg";
 import human from "@assets/icons/human.png";
 import { Input, Select } from "antd";
 import { useAppDispatch } from "@hooks/hooks";
-import { addSearchValue } from "@store/reducers/UserSlice";
+import { addSearchValue, addDropDownValues } from "@store/reducers/UserSlice";
 import { product, checkout } from "@constants";
-import { selectArr } from "mockedData/mockedData";
+import { selectArr, searchArr } from "mockedData/mockedData";
 import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import s from "./Header.module.scss";
 import { Link } from "react-router-dom";
@@ -18,6 +18,10 @@ const Header: FC = () => {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearch(e.target.value);
+  };
+
+  const onChange = (value: string) => {
+    dispatch(addDropDownValues([value]));
   };
 
   useEffect(() => {
@@ -55,9 +59,10 @@ const Header: FC = () => {
         </div>
         <div className={s.search__input}>
           <Input.Group compact>
-            <Select className={s.search__select} defaultValue="All categories">
-              <Option value="Option1">Option1</Option>
-              <Option value="Option2">Option2</Option>
+            <Select className={s.search__select} onChange={onChange} defaultValue="All categories">
+              {searchArr.map((el) => (
+                <Option value={el.toLowerCase()}>{el}</Option>
+              ))}
             </Select>
             <Input
               value={search}
@@ -74,9 +79,13 @@ const Header: FC = () => {
         </div>
       </div>
       <div className={s.select}>
-        {selectArr.map((el) => (
-          <DropDown tag={el.tag} menu={el.menu} />
-        ))}
+        <ul>
+          {selectArr.map((el) => (
+            <li>
+              <DropDown tag={el.tag} menu={el.menu} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
