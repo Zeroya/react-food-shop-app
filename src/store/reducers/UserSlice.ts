@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "@store/store";
 import { SidebarCondition } from "@models/Enums";
+import { firstLetterStrUpperCase } from "@utils/firstLetterStrUpperCase";
 import { ICard, IFilterData } from "@models/ICard";
 
 interface ShopState {
@@ -44,6 +45,13 @@ export const counterSlice = createSlice({
     addSearchValue: (state, action: PayloadAction<string>) => {
       state.searchValue = action.payload;
     },
+    addCategoryValue: (state, action: PayloadAction<string>) => {
+      state.filterValues.category = [action.payload];
+      action.payload === "all categories" && (state.filterValues.category = []);
+      state.categoryValues = state.categoryValues.map((el) =>
+        state.filterValues.category[0] === el.value.toLowerCase() ? { ...el, checked: true } : { ...el, checked: false }
+      );
+    },
     addFilterValues: (state, action: PayloadAction<IFilterData>) => {
       state.filterValues = action.payload;
     },
@@ -55,19 +63,21 @@ export const counterSlice = createSlice({
     },
     setCategoriesValues: (state, action: PayloadAction<ICard[]>) => {
       state.categoryValues = Array.from(new Set(action.payload.map((el) => el.categoryPath).flat())).map((el) => ({
-        value: el,
+        value: firstLetterStrUpperCase(el),
         checked: false,
       }));
       state.brandValues = Array.from(new Set(action.payload.map((el) => el.farm).flat())).map((el) => ({
-        value: el,
+        value: firstLetterStrUpperCase(el),
         checked: false,
       }));
     },
     toggleMarkChange: (state, action: PayloadAction<{ fieldName: string; id: number; checked: boolean }>) => {
-      SidebarCondition.category === action.payload.fieldName &&
-        (state.categoryValues[action.payload.id].checked = !action.payload.checked);
-      SidebarCondition.brand === action.payload.fieldName &&
-        (state.brandValues[action.payload.id].checked = !action.payload.checked);
+      const { fieldName, id, checked } = action.payload;
+      SidebarCondition.category === fieldName &&
+        (state.categoryValues = state.categoryValues.map((el, eId) =>
+          eId === id ? { ...el, checked: !checked } : { ...el, checked: false }
+        ));
+      SidebarCondition.brand === fieldName && (state.brandValues[id].checked = !checked);
     },
     resetFilterState: (state) => {
       state.categoryValues = state.categoryValues.map((el) => ({ ...el, checked: false }));
@@ -86,6 +96,7 @@ export const {
   setCategoriesValues,
   toggleMarkChange,
   resetFilterState,
+  addCategoryValue,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

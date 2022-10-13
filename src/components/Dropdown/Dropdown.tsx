@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { DownOutlined } from "@ant-design/icons";
+import { useAppSelector } from "@hooks/hooks";
 import type { MenuProps } from "antd";
 import { IDropDown } from "@models/ICard";
 import { addDropDownValues, addFilterValues } from "@store/reducers/UserSlice";
@@ -9,6 +10,8 @@ import "./DropDown.css";
 
 const DropDown: FC<IDropDown> = (down) => {
   const dispatch = useAppDispatch();
+  const priceMin = useAppSelector((state) => state.food.filterValues.priceMin);
+  const priceMax = useAppSelector((state) => state.food.filterValues.priceMax);
 
   const onClick: MenuProps["onClick"] = ({ key }) => {
     dispatch(addDropDownValues([down.menu[Number(key) - 1].label, down.tag]));
@@ -17,8 +20,8 @@ const DropDown: FC<IDropDown> = (down) => {
         category: [],
         brand: [],
         rating: [],
-        priceMin: 5,
-        priceMax: 100,
+        priceMin: priceMin,
+        priceMax: priceMax,
       })
     );
   };

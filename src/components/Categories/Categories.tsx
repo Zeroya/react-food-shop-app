@@ -38,7 +38,7 @@ const Categories: FC = () => {
       ...input,
       [fieldName]:
         fieldName === SidebarCondition.category
-          ? [...input.category, e]
+          ? [e]
           : fieldName === SidebarCondition.brand
           ? [...input.brand, e]
           : [...input.rating, e],
@@ -88,9 +88,9 @@ const Categories: FC = () => {
     dispatch(resetDropDownValues());
   };
 
-  const categoryToggle = (value: number | string, id: number, checked: boolean) => {
-    onClick(value, "category");
-    toggleChange(checked, id, value, "category");
+  const categoryToggle = (value: number | string, id: number, checked: boolean, category: string) => {
+    onClick(value, category);
+    toggleChange(checked, id, value, category);
   };
 
   useEffect(() => {
@@ -106,7 +106,7 @@ const Categories: FC = () => {
     setTimeout(() => {
       buttonReset();
     }, 1000);
-  }, [cards.length]);
+  }, [cards]);
 
   useEffect(() => {
     dropDownValue[0] === "all categories" && dispatch(resetDropDownValues());
@@ -121,7 +121,7 @@ const Categories: FC = () => {
             return (
               <li
                 className={`${s.categories__item} ${s.categories__item_hoverEffect} `}
-                onClick={() => categoryToggle(el.value, id, el.checked)}
+                onClick={() => categoryToggle(el.value, id, el.checked, SidebarCondition.category)}
               >
                 <div className={`${s.categories__name} ${s.sidebar__text} ${el.checked && s.categories__item_active} `}>
                   {el.value}
@@ -137,13 +137,18 @@ const Categories: FC = () => {
         <ul>
           {brandValues.map((el, id) => {
             return (
-              <li
-                className={`${s.brands__item}  ${s.categories__item_hoverEffect} `}
-                onClick={() => onClick(el.value, "brand")}
-              >
-                <Checkbox checked={el.checked} onChange={() => toggleChange(el.checked, id, el.value, "brand")}>
-                  <div className={`${s.sidebar__text} ${s.brands__name}`}>{el.value}</div>
-                </Checkbox>
+              <li className={`${s.brands__item}`}>
+                <div
+                  className={`${s.categories__item_hoverEffect} `}
+                  onClick={() => onClick(el.value, SidebarCondition.brand)}
+                >
+                  <Checkbox
+                    checked={el.checked}
+                    onChange={() => toggleChange(el.checked, id, el.value, SidebarCondition.brand)}
+                  >
+                    <div className={`${s.sidebar__text} ${s.brands__name}`}>{el.value}</div>
+                  </Checkbox>
+                </div>
               </li>
             );
           })}
@@ -154,14 +159,18 @@ const Categories: FC = () => {
         <ul>
           {starsArr.map((el, id) => {
             return (
-              <li
-                key={id}
-                className={`${s.brands__item} ${s.categories__item_hoverEffect} `}
-                onClick={() => onClick(el.value, "rating")}
-              >
-                <Checkbox checked={el.checked} onChange={() => toggleChange(el.checked, id, el.value, "rating")}>
-                  <Rate disabled defaultValue={el.value} />
-                </Checkbox>
+              <li key={id} className={`${s.brands__item}`}>
+                <div
+                  className={`${s.categories__item_hoverEffect} `}
+                  onClick={() => onClick(el.value, SidebarCondition.rating)}
+                >
+                  <Checkbox
+                    checked={el.checked}
+                    onChange={() => toggleChange(el.checked, id, el.value, SidebarCondition.rating)}
+                  >
+                    <Rate disabled defaultValue={el.value} />
+                  </Checkbox>
+                </div>
               </li>
             );
           })}
