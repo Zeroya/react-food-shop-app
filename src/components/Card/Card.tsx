@@ -21,7 +21,7 @@ const Card: FC<ICard> = ({
 }) => {
   return (
     <div className={s.card}>
-      <div className={s.card__img}>
+      <div className={s.card__imgWraper}>
         <img src={`https://spoonacular.com/cdn/ingredients_500x500/${image}`} alt="" />
       </div>
       <div className={s.card__body}>

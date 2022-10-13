@@ -17,8 +17,8 @@ const initialState: ShopState = {
     category: [],
     brand: [],
     rating: [],
-    priceMin: 20,
-    priceMax: 70,
+    priceMin: 18,
+    priceMax: 135,
   },
   dropDownValue: [],
 };

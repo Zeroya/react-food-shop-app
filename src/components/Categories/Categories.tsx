@@ -2,6 +2,8 @@ import React, { FC, useState, useEffect } from "react";
 import { categoriesArr, brandArr, starsArr } from "mockedData/mockedData";
 import { calcCategoriesAmount } from "@utils/calcCategoriesAmount";
 import { Checkbox, Rate, Slider, InputNumber } from "antd";
+import { SidebarCondition } from "@models/Enums";
+import { findMinMaxPrice } from "@utils/findMinMaxPrice";
 import { addFilterValues, resetDropDownValues } from "@store/reducers/UserSlice";
 import { IFilterData } from "@models/ICard";
 import { useAppDispatch, useAppSelector } from "@hooks/hooks";
@@ -9,13 +11,14 @@ import s from "./Categories.module.scss";
 import "./checkbox.css";
 
 const Categories: FC = () => {
+  const [price, setPrice] = useState<Array<number>>([18, 135]);
   const [reset, setReset] = useState(false);
   const [input, setInput] = useState<IFilterData>({
     category: [],
     brand: [],
     rating: [],
-    priceMin: 5,
-    priceMax: 100,
+    priceMin: price[0],
+    priceMax: price[1],
   });
 
   const cards = useAppSelector((state) => state.food.cards);
@@ -31,28 +34,32 @@ const Categories: FC = () => {
     setInput({
       ...input,
       [fieldName]:
-        fieldName === "category"
+        fieldName === SidebarCondition.category
           ? [...input.category, e]
-          : fieldName === "brand"
+          : fieldName === SidebarCondition.brand
           ? [...input.brand, e]
           : [...input.rating, e],
     });
   };
+
+  console.log(findMinMaxPrice(cards));
+  console.log(price);
+  console.log(cards);
 
   const toggleChange = (checked: boolean, id: number, value: number | string, fieldName: string): void => {
     checked &&
       setInput({
         ...input,
         [fieldName]:
-          fieldName === "rating"
+          fieldName === SidebarCondition.rating
             ? input.rating.filter((el) => el !== value)
-            : fieldName === "category"
+            : fieldName === SidebarCondition.category
             ? input.category.filter((el) => el !== value)
             : input.brand.filter((el) => el !== value),
       });
-    fieldName === "rating"
+    fieldName === SidebarCondition.rating
       ? (starsArr[id].checked = !checked)
-      : fieldName === "category"
+      : fieldName === SidebarCondition.category
       ? (categoriesArr[id].checked = !checked)
       : (brandArr[id].checked = !checked);
   };
@@ -65,14 +72,15 @@ const Categories: FC = () => {
     starsArr.forEach((_, id) => (starsArr[id].checked = false));
     brandArr.forEach((_, id) => (brandArr[id].checked = false));
     categoriesArr.forEach((_, id) => (categoriesArr[id].checked = false));
+    setInput({ category: [], brand: [], rating: [], priceMin: price[0], priceMax: price[1] });
     setReset(!reset);
     dispatch(
       addFilterValues({
         category: [],
         brand: [],
         rating: [],
-        priceMin: 5,
-        priceMax: 100,
+        priceMin: price[0],
+        priceMax: price[1],
       })
     );
   };
@@ -80,6 +88,11 @@ const Categories: FC = () => {
   const buttonReset = () => {
     filterReset();
     dispatch(resetDropDownValues());
+  };
+
+  const categoryToggle = (value: number | string, id: number, checked: boolean) => {
+    onClick(value, "category");
+    toggleChange(checked, id, value, "category");
   };
 
   useEffect(() => {
@@ -90,6 +103,10 @@ const Categories: FC = () => {
     dropDownValue && filterReset();
   }, [dropDownValue]);
 
+  useEffect(() => {
+    setPrice(findMinMaxPrice(cards));
+  }, [cards.length]);
+
   return (
     <div className={s.sidebar}>
       <div className={s.categories}>
@@ -97,13 +114,7 @@ const Categories: FC = () => {
         <ul>
           {categoriesArr.map((el, id) => {
             return (
-              <li
-                className={s.categories__item}
-                onClick={() => {
-                  onClick(el.value, "category");
-                  toggleChange(el.checked, id, el.value, "category");
-                }}
-              >
+              <li className={s.categories__item} onClick={() => categoryToggle(el.value, id, el.checked)}>
                 <div className={`${s.categories__name} ${s.sidebar__text} ${el.checked && s.categories__item_active} `}>
                   {el.value}
                 </div>
@@ -143,13 +154,19 @@ const Categories: FC = () => {
       </div>
       <div className={s.price}>
         <h3 className={s.sidebar__topic}>Price</h3>
-        <Slider range min={1} max={100} value={[input.priceMin, input.priceMax]} onChange={(e) => multSelect(e)} />
+        <Slider
+          range
+          min={price[0]}
+          max={price[1]}
+          value={[input.priceMin, input.priceMax]}
+          onChange={(e) => multSelect(e)}
+        />
         <div className={s.sidebar__buttons}>
           <div className={s.price__button}>
             <span> Min</span>{" "}
             <InputNumber
               step={3}
-              min={1}
+              min={price[0]}
               max={input.priceMax}
               value={input.priceMin}
               onChange={(e) => onChange(e, "priceMin")}
@@ -160,7 +177,7 @@ const Categories: FC = () => {
             <InputNumber
               step={3}
               min={input.priceMin}
-              max={100}
+              max={price[1]}
               value={input.priceMax}
               onChange={(e) => onChange(e, "priceMax")}
             />
