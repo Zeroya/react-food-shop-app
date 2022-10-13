@@ -23,6 +23,8 @@
     font-size: 14px;
     line-height: 19px;
     color: $cardTitle;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__buttons {
@@ -39,6 +41,15 @@
     gap: 100px;
     padding-bottom: 8px;
 
+    &_hoverEffect {
+      cursor: pointer;
+
+      &:hover {
+        background: $categoryHover;
+        border-radius: 12px;
+      }
+    }
+
     &_active {
       background-color: $activeCategory;
       padding: 0 8px 0 8px;
@@ -50,8 +61,22 @@
     }
   }
 
+  &__wrapper {
+    height: 15em;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+  }
+
   &__name {
-    width: 75px;
+    width: 80px;
+    height: 1.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__amount {
@@ -76,6 +101,10 @@
     &:last-child {
       padding-bottom: 0;
     }
+  }
+
+  &__name {
+    width: 120px;
   }
 }
 

@@ -4,8 +4,7 @@ import type { MenuProps } from "antd";
 import { IDropDown } from "@models/ICard";
 import { addDropDownValues, addFilterValues } from "@store/reducers/UserSlice";
 import { useAppDispatch } from "@hooks/hooks";
-import { categoriesArr, brandArr, starsArr } from "mockedData/mockedData";
-import { Dropdown, Menu, message, Space } from "antd";
+import { Dropdown, Menu, Space } from "antd";
 import "./DropDown.css";
 
 const DropDown: FC<IDropDown> = (down) => {
