@@ -107,6 +107,10 @@ const Categories: FC = () => {
     setPrice(findMinMaxPrice(cards));
   }, [cards.length]);
 
+  useEffect(() => {
+    dropDownValue[0] === "all categories" && dispatch(resetDropDownValues());
+  }, [dropDownValue]);
+
   return (
     <div className={s.sidebar}>
       <div className={s.categories}>

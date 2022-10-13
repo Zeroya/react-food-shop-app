@@ -230,4 +230,13 @@ export const starsArr: Array<{ value: number; checked: boolean }> = [
   { value: 1, checked: false },
 ];
 
-export const searchArr: Array<string> = ["Fish", "Herbs", "Vegetable", "Fruit", "Pasta", "Cheese", "Main dish"];
+export const searchArr: Array<string> = [
+  "All categories",
+  "Fish",
+  "Herbs",
+  "Vegetable",
+  "Fruit",
+  "Pasta",
+  "Cheese",
+  "Main dish",
+];
