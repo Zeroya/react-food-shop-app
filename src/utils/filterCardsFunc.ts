@@ -1,4 +1,5 @@
 import { ICard, IFilterData } from "@models/ICard";
+import { calcDiscountPrice } from "./calcDiscountPrice";
 
 export const filterCardsFunc = (
   cards: Array<ICard>,
@@ -9,7 +10,8 @@ export const filterCardsFunc = (
   return cards
     ?.filter((el: ICard) => {
       return filterValues.priceMin && filterValues.priceMax
-        ? el.price > filterValues.priceMin && el.price < filterValues.priceMax
+        ? calcDiscountPrice(el.price, el.discount) > filterValues.priceMin &&
+            calcDiscountPrice(el.price, el.discount) < filterValues.priceMax
         : el;
     })
     ?.filter((el: ICard) => {

@@ -4,6 +4,7 @@ import { calcCategoriesAmount } from "@utils/calcCategoriesAmount";
 import { Checkbox, Rate, Slider, InputNumber } from "antd";
 import { SidebarCondition } from "@models/Enums";
 import { findMinMaxPrice } from "@utils/findMinMaxPrice";
+import { calcDiscountPriceAll } from "@utils/calcDiscountPrice";
 import { addFilterValues, resetDropDownValues, toggleMarkChange, resetFilterState } from "@store/reducers/UserSlice";
 import { IFilterData } from "@models/ICard";
 import { useAppDispatch, useAppSelector } from "@hooks/hooks";
@@ -17,8 +18,8 @@ const Categories: FC = () => {
     category: [],
     brand: [],
     rating: [],
-    priceMin: price[0],
-    priceMax: price[1],
+    priceMin: Math.floor(price[0]),
+    priceMax: Math.ceil(price[1]),
   });
 
   const cards = useAppSelector((state) => state.food.cards);
@@ -70,15 +71,15 @@ const Categories: FC = () => {
   const filterReset = () => {
     starsArr.forEach((_, id) => (starsArr[id].checked = false));
     dispatch(resetFilterState());
-    setInput({ category: [], brand: [], rating: [], priceMin: price[0], priceMax: price[1] });
+    setInput({ category: [], brand: [], rating: [], priceMin: Math.floor(price[0]), priceMax: Math.ceil(price[1]) });
     setReset(!reset);
     dispatch(
       addFilterValues({
         category: [],
         brand: [],
         rating: [],
-        priceMin: price[0],
-        priceMax: price[1],
+        priceMin: Math.floor(price[0]),
+        priceMax: Math.ceil(price[1]),
       })
     );
   };
@@ -102,7 +103,7 @@ const Categories: FC = () => {
   }, [dropDownValue]);
 
   useEffect(() => {
-    setPrice(findMinMaxPrice(cards));
+    setPrice(findMinMaxPrice(calcDiscountPriceAll(cards)));
     setTimeout(() => {
       buttonReset();
     }, 1000);
@@ -180,8 +181,8 @@ const Categories: FC = () => {
         <h3 className={s.sidebar__topic}>Price</h3>
         <Slider
           range
-          min={price[0]}
-          max={price[1]}
+          min={Math.floor(price[0])}
+          max={Math.ceil(price[1])}
           value={[input.priceMin, input.priceMax]}
           onChange={(e) => multSelect(e)}
         />
@@ -190,7 +191,7 @@ const Categories: FC = () => {
             <span> Min</span>{" "}
             <InputNumber
               step={3}
-              min={price[0]}
+              min={Math.floor(price[0])}
               max={input.priceMax}
               value={input.priceMin}
               onChange={(e) => onChange(e, "priceMin")}
@@ -201,7 +202,7 @@ const Categories: FC = () => {
             <InputNumber
               step={3}
               min={input.priceMin}
-              max={price[1]}
+              max={Math.ceil(price[1])}
               value={input.priceMax}
               onChange={(e) => onChange(e, "priceMax")}
             />
