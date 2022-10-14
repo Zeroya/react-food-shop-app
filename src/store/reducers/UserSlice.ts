@@ -48,9 +48,10 @@ export const counterSlice = createSlice({
     addCategoryValue: (state, action: PayloadAction<string>) => {
       state.filterValues.category = [action.payload];
       action.payload === "all categories" && (state.filterValues.category = []);
-      state.categoryValues = state.categoryValues.map((el) =>
-        state.filterValues.category[0] === el.value.toLowerCase() ? { ...el, checked: true } : { ...el, checked: false }
-      );
+      state.categoryValues = state.categoryValues.map((el) => ({
+        ...el,
+        checked: state.filterValues.category[0] === el.value.toLowerCase(),
+      }));
     },
     addFilterValues: (state, action: PayloadAction<IFilterData>) => {
       state.filterValues = action.payload;
