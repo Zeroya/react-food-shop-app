@@ -36,7 +36,7 @@ const Categories: FC = () => {
 
   const dispatch = useAppDispatch();
 
-  const someArr = category[0]?.split("").every((el) => el === el.toLowerCase());
+  const comparisonArr = category[0]?.split("").every((el) => el === el.toLowerCase());
 
   const onChange = (e: number, fieldName: string): void => {
     setInput({ ...input, [fieldName]: e });
@@ -105,7 +105,7 @@ const Categories: FC = () => {
 
   useEffect(() => {
     dispatch(addFilterValues(input));
-    someArr && dispatch(addFilterValues({ ...input, category }));
+    comparisonArr && dispatch(addFilterValues({ ...input, category }));
   }, [input]);
 
   useEffect(() => {
