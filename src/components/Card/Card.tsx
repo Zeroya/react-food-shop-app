@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Rate } from "antd";
 import { calcDiscountPrice } from "@utils/calcDiscountPrice";
 import { firstLetterStrUpperCase } from "@utils/firstLetterStrUpperCase";
+import buttonMark from "@assets/icons/buttonMark.svg";
 import { ICard } from "@models/ICard";
 import { HeartOutlined } from "@ant-design/icons";
 import s from "./Card.module.scss";
@@ -20,7 +21,7 @@ const Card: FC<ICard> = ({
 }) => {
   return (
     <div className={s.card}>
-      <div className={s.card__img}>
+      <div className={s.card__imgWraper}>
         <img src={`https://spoonacular.com/cdn/ingredients_500x500/${image}`} alt="" />
       </div>
       <div className={s.card__body}>
@@ -58,8 +59,11 @@ const Card: FC<ICard> = ({
             <p className={`${s.card_lightText} ${s.card_deliveryFontInfo}`}>Delivery {delivery}</p>
           </div>
           <div className={s.card__buttons}>
-            <button className={s.card__productButton}>{"Product Detail" + " >"}</button>
-            <button className={s.card__wishButton}>{<HeartOutlined />} Add to wish list</button>
+            <button className={s.card__productButton}>
+              Product Detail
+              <img src={buttonMark} />
+            </button>
+            <button className={s.card__wishButton}>{<HeartOutlined />}Add to wish list</button>
           </div>
         </div>
       </div>

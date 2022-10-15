@@ -29,3 +29,11 @@ interface IDropDownMenu {
   label: string;
   key: string;
 }
+
+export interface IFilterData {
+  category: Array<string | null>;
+  brand: Array<string | null>;
+  rating: Array<number | null>;
+  priceMin: number | any;
+  priceMax: number | any;
+}

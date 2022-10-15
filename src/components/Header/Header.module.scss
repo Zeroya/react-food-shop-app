@@ -60,7 +60,16 @@
     margin: 13px 0 18px 0;
 
     &__select {
-      width: 100px;
+      width: 135px;
+
+      & span {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 22px;
+        color: $cardTitle;
+      }
     }
 
     &__icons {
@@ -105,7 +114,7 @@
 
   }
 
-  .select {
+  .select ul {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -117,10 +126,7 @@
       width: "auto";
       font-weight: 800;
       font-size: 18px;
-      color: "#151515";
       font-family: "Poppins";
     }
   }
-
-
 }
