@@ -5,7 +5,13 @@ import { Checkbox, Rate, Slider, InputNumber } from "antd";
 import { SidebarCondition } from "@models/Enums";
 import { findMinMaxPrice } from "@utils/findMinMaxPrice";
 import { calcDiscountPriceAll } from "@utils/calcDiscountPrice";
-import { addFilterValues, resetDropDownValues, toggleMarkChange, resetFilterState } from "@store/reducers/UserSlice";
+import {
+  addFilterValues,
+  resetDropDownValues,
+  toggleMarkChange,
+  resetFilterState,
+  addCategoryValue,
+} from "@store/reducers/UserSlice";
 import { IFilterData } from "@models/ICard";
 import { useAppDispatch, useAppSelector } from "@hooks/hooks";
 import s from "./Categories.module.scss";
@@ -24,11 +30,13 @@ const Categories: FC = () => {
 
   const cards = useAppSelector((state) => state.food.cards);
   const dropDownValue = useAppSelector((state) => state.food.dropDownValue);
-
   const categoryValues = useAppSelector((state) => state.food.categoryValues);
   const brandValues = useAppSelector((state) => state.food.brandValues);
+  const category = useAppSelector((state) => state.food.filterValues.category);
 
   const dispatch = useAppDispatch();
+
+  const someArr = category[0]?.split("").every((el) => el === el.toLowerCase());
 
   const onChange = (e: number, fieldName: string): void => {
     setInput({ ...input, [fieldName]: e });
@@ -44,6 +52,7 @@ const Categories: FC = () => {
           ? [...input.brand, e]
           : [...input.rating, e],
     });
+    fieldName === "category" && typeof e === "string" && dispatch(addCategoryValue(e));
   };
 
   const toggleChange = (checked: boolean, id: number, value: number | string, fieldName: string): void => {
@@ -95,7 +104,8 @@ const Categories: FC = () => {
   };
 
   useEffect(() => {
-    input && dispatch(addFilterValues(input));
+    dispatch(addFilterValues(input));
+    someArr && dispatch(addFilterValues({ ...input, category }));
   }, [input]);
 
   useEffect(() => {
