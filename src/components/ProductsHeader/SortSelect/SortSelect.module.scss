@@ -1,0 +1,36 @@
+@import '../../../styles/variables.scss';
+
+.sortSelect {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 16px;
+  margin: 17px 0;
+  width: 181px;
+  height: 38px;
+  background: $bgInput;
+  border: 1px solid $selectBorder;
+  border-radius: 12px;
+
+  &__text {
+    width: 50px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: $cardTitle;
+  }
+
+
+  &__divider {
+    border-left: 1px solid $selectBorder;
+
+    & p {
+      opacity: 0;
+    }
+  }
+
+}

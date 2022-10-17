@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+
+  &_title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    color: $cardTitle;
+
+  }
+
+  &_amount {
+
+    & span:first-child {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+      color: $cardButton;
+      background: $amountOfCategory;
+      padding: 2px 8px 2px 8px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    & span:last-child {
+      padding: 5px;
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: $cardLightText;
+    }
+  }
+}

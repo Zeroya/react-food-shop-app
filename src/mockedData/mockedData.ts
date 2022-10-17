@@ -77,7 +77,7 @@ export const selectArr: Array<IDropDown> = [
     ],
   },
   {
-    tag: "Fruits",
+    tag: "Fruit",
     menu: [
       {
         label: "Grocery Tarm Fields",
@@ -214,4 +214,19 @@ export const starsArr: Array<{ value: number; checked: boolean }> = [
   { value: 3, checked: false },
   { value: 2, checked: false },
   { value: 1, checked: false },
+];
+
+export const sortArr: Array<string> = [
+  "↓title",
+  "↑title",
+  "↓price",
+  "↑price",
+  "↓discount",
+  "↑discount",
+  "↓stars",
+  "↑stars",
+  "↓delivery",
+  "↑delivery",
+  "↓stock",
+  "↑stock",
 ];

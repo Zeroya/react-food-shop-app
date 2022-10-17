@@ -13,6 +13,7 @@ interface ShopState {
   searchValue: string;
   filterValues: IFilterData;
   dropDownValue: Array<string>;
+  sortValue: string;
 }
 
 const initialState: ShopState = {
@@ -29,6 +30,7 @@ const initialState: ShopState = {
     priceMax: 0,
   },
   dropDownValue: [],
+  sortValue: "",
 };
 
 export const counterSlice = createSlice({
@@ -41,6 +43,9 @@ export const counterSlice = createSlice({
     },
     setFilteredCards: (state, action: PayloadAction<ICard[]>) => {
       state.filteredCards = action.payload;
+    },
+    setSortValue: (state, action: PayloadAction<string>) => {
+      state.sortValue = action.payload;
     },
     addSearchValue: (state, action: PayloadAction<string>) => {
       state.searchValue = action.payload;
@@ -98,6 +103,7 @@ export const {
   toggleMarkChange,
   resetFilterState,
   addCategoryValue,
+  setSortValue,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

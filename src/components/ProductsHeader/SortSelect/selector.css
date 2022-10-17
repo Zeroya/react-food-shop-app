@@ -1,0 +1,22 @@
+@import '../../../styles/antdVariables.css';
+
+.sortSelect__select .ant-select-selector {
+  position: relative;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.sortSelect__select .ant-select-selector span {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-ant-select-bg);
+}
+
+.sortSelect__select .ant-select-arrow {
+  font-size: 8px;
+}
