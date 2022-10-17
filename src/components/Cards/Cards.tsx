@@ -20,20 +20,18 @@ const Cards: FC = () => {
 
   return (
     <div className={s.cards}>
-      <div className={s.cards__item}>
-        {error && <Alert message="Some error with mockApi data(" type="error" showIcon />}
-        {isLoading && (
-          <div className={s.cards__spiner}>
-            <Spin size="large" />
-          </div>
-        )}
-        {!filteredCards.length && !isLoading && (
-          <div>
-            <Result title="There are no products here, please change category or Reset categories" />
-          </div>
-        )}
-        <FilteredCards />
-      </div>
+      {error && <Alert message="Some error with mockApi data(" type="error" showIcon />}
+      {isLoading && (
+        <div className={s.cards__spiner}>
+          <Spin size="large" />
+        </div>
+      )}
+      {!filteredCards.length && !isLoading && (
+        <div>
+          <Result title="There are no products here, please change category or Reset categories" />
+        </div>
+      )}
+      <FilteredCards />
     </div>
   );
 };
