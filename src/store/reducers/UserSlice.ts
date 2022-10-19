@@ -8,6 +8,7 @@ import { ICard, IFilterData } from "@models/ICard";
 interface ShopState {
   cards: Array<ICard>;
   filteredCards: Array<ICard>;
+  paginatedCards: Array<ICard>;
   categoryValues: Array<{ value: string; checked: boolean }>;
   brandValues: Array<{ value: string; checked: boolean }>;
   searchValue: string;
@@ -19,6 +20,7 @@ interface ShopState {
 const initialState: ShopState = {
   cards: [],
   filteredCards: [],
+  paginatedCards: [],
   searchValue: "",
   categoryValues: [],
   brandValues: [],
@@ -43,6 +45,9 @@ export const counterSlice = createSlice({
     },
     setFilteredCards: (state, action: PayloadAction<ICard[]>) => {
       state.filteredCards = action.payload;
+    },
+    setPaginatedCards: (state, action: PayloadAction<ICard[]>) => {
+      state.paginatedCards = action.payload;
     },
     setSortValue: (state, action: PayloadAction<string>) => {
       state.sortValue = action.payload;
@@ -104,6 +109,7 @@ export const {
   resetFilterState,
   addCategoryValue,
   setSortValue,
+  setPaginatedCards,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;
