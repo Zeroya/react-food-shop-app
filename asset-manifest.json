@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-food-shop-app/static/css/main.7bb15a22.css",
-    "main.js": "/react-food-shop-app/static/js/main.f130b2b6.js",
+    "main.js": "/react-food-shop-app/static/js/main.f75524c1.js",
     "static/media/Freshnesecom.svg": "/react-food-shop-app/static/media/Freshnesecom.b2d35e2b53f0a7254b59f48776a623e5.svg",
     "index.html": "/react-food-shop-app/index.html",
     "static/media/buttonMark.svg": "/react-food-shop-app/static/media/buttonMark.f1f8846afad35f57a86399a0fbe618fe.svg",
     "main.7bb15a22.css.map": "/react-food-shop-app/static/css/main.7bb15a22.css.map",
-    "main.f130b2b6.js.map": "/react-food-shop-app/static/js/main.f130b2b6.js.map"
+    "main.f75524c1.js.map": "/react-food-shop-app/static/js/main.f75524c1.js.map"
   },
   "entrypoints": [
     "static/css/main.7bb15a22.css",
-    "static/js/main.f130b2b6.js"
+    "static/js/main.f75524c1.js"
   ]
 }
