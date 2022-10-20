@@ -1,4 +1,5 @@
 import { IDropDown } from "@models/ICard";
+import { sortObj } from "@models/ICard";
 
 export const selectArr: Array<IDropDown> = [
   {
@@ -216,17 +217,17 @@ export const starsArr: Array<{ value: number; checked: boolean }> = [
   { value: 1, checked: false },
 ];
 
-export const sortArr: Array<string> = [
-  "↓title",
-  "↑title",
-  "↓price",
-  "↑price",
-  "↓discount",
-  "↑discount",
-  "↓stars",
-  "↑stars",
-  "↓delivery",
-  "↑delivery",
-  "↓stock",
-  "↑stock",
+export const sortArr: Array<sortObj> = [
+  { name: "↓name", checked: false, value: "name" },
+  { name: "↑name", checked: true, value: "name" },
+  { name: "↓price", checked: false, value: "price" },
+  { name: "↑price", checked: true, value: "price" },
+  { name: "↓discount", checked: false, value: "discount" },
+  { name: "↑discount", checked: true, value: "discount" },
+  { name: "↓popularity", checked: false, value: "popularity" },
+  { name: "↑popularity", checked: true, value: "popularity" },
+  { name: "↓delivery", checked: false, value: "delivery" },
+  { name: "↑delivery", checked: true, value: "delivery" },
+  { name: "↓stock", checked: false, value: "stock" },
+  { name: "↑stock", checked: true, value: "stock" },
 ];

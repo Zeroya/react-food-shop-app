@@ -24,7 +24,7 @@ const SortSelect = () => {
       </div>
       <Select defaultValue="Select" className="sortSelect__select" onChange={handleChange}>
         {sortArr.map((el) => (
-          <Option value={el}>{el}</Option>
+          <Option value={el.name}>{el.name}</Option>
         ))}
       </Select>
     </div>

@@ -1,0 +1,60 @@
+@import '../../styles/variables.scss';
+
+.paginationBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .loadMore {
+    &__button {
+      padding: 12px 16px;
+      gap: 6px;
+      background: $greenText;
+      border: 2px solid $cardButtonBorder;
+      border-radius: 12px;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 22px;
+      color: $cardListText;
+
+      &:hover {
+        background: $buttonProductHover;
+      }
+
+      & img {
+        transform: rotate(90deg);
+        padding: 0 10px;
+      }
+    }
+  }
+
+  .amount {
+    &__cards {
+      & span:first-child {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        color: $cardButton;
+        background: $amountOfCategory;
+        padding: 2px 8px 2px 8px;
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      & span:last-child {
+        padding: 5px;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: $cardLightText;
+      }
+    }
+  }
+
+}

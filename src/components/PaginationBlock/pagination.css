@@ -1,0 +1,21 @@
+@import '../../styles/antdVariables.css';
+
+li.ant-pagination-item-active a {
+  color: var(--color-pagination);
+}
+
+.ant-pagination-prev a {
+  color:var(--color-pagination);
+}
+
+li.ant-pagination-item{
+  border-color: white;
+}
+
+li.ant-pagination-item:hover{
+  border-color: white ;
+}
+
+li.ant-pagination-item a:hover {
+  color:var(--color-pagination);
+}

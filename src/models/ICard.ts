@@ -37,3 +37,9 @@ export interface IFilterData {
   priceMin: number | any;
   priceMax: number | any;
 }
+
+export interface sortObj {
+  name: string;
+  checked: boolean;
+  value: string;
+}
