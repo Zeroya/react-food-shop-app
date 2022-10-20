@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "@hooks/hooks";
 import { setFilteredCards } from "@store/reducers/UserSlice";
 import { filterCardsFunc } from "@utils/filterCardsFunc";
 import { sortCardsFunc } from "@utils/sortCardsFunc";
+import { sortArr } from "mockedData/mockedData";
 import Card from "@components/Card/Card";
 import { ICard, sortObj } from "@models/ICard";
 
@@ -16,10 +17,9 @@ const FilteredCards: FC = () => {
   const sortValue = useAppSelector((state) => state.food.sortValue);
   const allCards = useAppSelector((state) => state.food.paginatedCards);
 
-  const sortedValue = sortValue
-    ?.split(" ")
-    ?.map((el) => ({ name: el, checked: el.charCodeAt(0) === 8593 }))
-    .shift() as sortObj;
+  const sortedValue = !sortArr.find((el) => el?.name === sortValue)
+    ? { name: "", checked: false, value: "" }
+    : (sortArr.find((el) => el?.name === sortValue) as sortObj);
 
   const cardsFilter = sortCardsFunc(filterCardsFunc(cards, filterValues, dropDownValue, searchedValue), sortedValue);
 

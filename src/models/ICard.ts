@@ -41,4 +41,5 @@ export interface IFilterData {
 export interface sortObj {
   name: string;
   checked: boolean;
+  value: string;
 }

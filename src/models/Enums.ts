@@ -12,3 +12,14 @@ export enum SortCondition {
   delivery = "delivery",
   stock = "stock",
 }
+
+export enum SortByNumbers {
+  discount = "discount",
+  popularity = "popularity",
+  stock = "stock",
+}
+
+export enum SortByStrings {
+  name = "name",
+  delivery = "delivery",
+}
