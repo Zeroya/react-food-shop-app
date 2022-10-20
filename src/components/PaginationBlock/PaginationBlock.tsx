@@ -56,7 +56,10 @@ const PaginationBlock: FC = () => {
     for (let i = 0; i < currentClass.length; i++) {
       currentClass[i].classList.remove("ant-pagination-item-active");
     }
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (

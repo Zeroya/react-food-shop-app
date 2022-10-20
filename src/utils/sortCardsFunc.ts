@@ -35,22 +35,20 @@ export const sortByNumbers = (cards: Array<ICard>, sortValues: sortObj): Array<I
     : cards;
 };
 
+const StringFunc = (cards: Array<ICard>, sortValues: sortObj): Array<ICard> => {
+  return cards.sort((a: ICard, b: ICard) => {
+    const el1 = String(a[sortValues.value as keyof ICard]);
+    const el2 = String(b[sortValues.value as keyof ICard]);
+    return el1.localeCompare(el2);
+  });
+};
+
 export const sortByStrings = (cards: Array<ICard>, sortValues: sortObj): Array<ICard> => {
   return !sortValues.name.slice(1).localeCompare(SortByStrings[sortValues.value as keyof typeof SortByStrings]) &&
     !sortValues.checked
-    ? cards.sort((a: ICard, b: ICard) => {
-        const el1 = String(a[sortValues.value as keyof ICard]);
-        const el2 = String(b[sortValues.value as keyof ICard]);
-        return el1.localeCompare(el2);
-      })
+    ? StringFunc(cards, sortValues)
     : !sortValues.name.slice(1).localeCompare(SortByStrings[sortValues.value as keyof typeof SortByStrings]) &&
       sortValues.checked
-    ? cards
-        .sort((a: ICard, b: ICard) => {
-          const el1 = String(a[sortValues.value as keyof ICard]);
-          const el2 = String(b[sortValues.value as keyof ICard]);
-          return el1.localeCompare(el2);
-        })
-        .reverse()
+    ? StringFunc(cards, sortValues).reverse()
     : cards;
 };
