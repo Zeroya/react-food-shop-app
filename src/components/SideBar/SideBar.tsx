@@ -18,9 +18,9 @@ const SideBar: FC = () => {
 
   return (
     <div className={s.sidebar}>
-      <Button type="primary" onClick={showDrawer} className={s.sidebar__button}>
+      <button onClick={showDrawer} className={s.sidebar__button}>
         <p>Filters</p>
-      </Button>
+      </button>
       <Drawer title="Filters" placement={placement} width={"100%"} onClose={onClose} open={open}>
         <Categories />
       </Drawer>
