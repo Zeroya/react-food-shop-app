@@ -12,7 +12,6 @@ const FilteredCards: FC = () => {
   const searchedValue = useAppSelector((state) => state.food.searchValue);
   const filterValues = useAppSelector((state) => state.food.filterValues);
   const dropDownValue = useAppSelector((state) => state.food.dropDownValue);
-  const filteredCards = useAppSelector((state) => state.food.filteredCards);
   const cards = useAppSelector((state) => state.food.cards);
   const sortValue = useAppSelector((state) => state.food.sortValue);
   const allCards = useAppSelector((state) => state.food.paginatedCards);

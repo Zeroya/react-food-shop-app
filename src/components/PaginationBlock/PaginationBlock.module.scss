@@ -58,3 +58,27 @@
   }
 
 }
+
+@media screen and (max-width: 525px) {
+  .paginationBlock {
+    flex-wrap: wrap;
+
+    .amount {
+      order: 3;
+    }
+
+    .pagination {
+      order: 2;
+    }
+
+    .loadMore {
+      order: 1;
+      width: 100vw;
+      text-align: center;
+
+      &__button {
+        font-size: 12px;
+      }
+    }
+  }
+}
