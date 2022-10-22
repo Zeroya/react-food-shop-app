@@ -15,6 +15,7 @@
 
     &__contacts {
       display: flex;
+      flex-wrap: wrap;
 
       & p:first-child {
         color: $greenText;
@@ -119,11 +120,12 @@
     padding-left: 17px;
 
     & ul {
+      padding: 4px;
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
       align-items: center;
-      height: 55px;
+      min-height: 55px;
       background-color: $bgInput;
 
       &__dropdown {
@@ -131,6 +133,48 @@
         font-weight: 800;
         font-size: 18px;
         font-family: "Poppins";
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .search {
+    &__input_form {
+      width: 30vw !important;
+    }
+
+    &__select {
+      width: 20vw !important;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header {
+    .search {
+      justify-content: center;
+
+      &__input {
+        padding-right: 1em;
+      }
+
+      & div:first-child {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 1em;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .header {
+    .info {
+      justify-content: center;
+
+      &__contacts {
+        justify-content: center;
       }
     }
   }

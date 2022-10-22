@@ -9,8 +9,6 @@ import FilteredCards from "./FilteredCards";
 const Cards: FC = () => {
   const dispatch = useAppDispatch();
   const filteredCards = useAppSelector((state) => state.food.filteredCards);
-  const categoryValues = useAppSelector((state) => state.food.categoryValues);
-  const brandValues = useAppSelector((state) => state.food.brandValues);
   const { data: allFreshFood, isLoading, error } = FoodApi.useFetchAllFreshFoodQuery();
 
   useEffect(() => {

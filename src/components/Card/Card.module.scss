@@ -202,3 +202,23 @@
     width: 48%;
   }
 }
+
+
+@media screen and (max-width: 700px) {
+  .card {
+
+    &__body {
+      flex-direction: row;
+    }
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .card {
+
+    &__body {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

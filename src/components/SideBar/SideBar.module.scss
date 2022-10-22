@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+.sidebar {
+  display: flex;
+  justify-content: center;
+  margin-top: -2em;
+  margin-bottom: 2em;
+
+  &__button {
+    padding: 9px 16px;
+    width: 100px;
+    height: 38px;
+    background: $cardButton;
+    border: 1px solid $cardButtonBorder;
+    border-radius: 12px;
+
+    &:hover {
+      background: $cardButtonBorder;
+    }
+
+    & p {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}
