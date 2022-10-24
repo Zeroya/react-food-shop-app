@@ -29,7 +29,7 @@ const BreadCrumb: FC = () => {
         <Breadcrumb.Item>
           <Link to="/">Homepage</Link>
         </Breadcrumb.Item>
-        {pathSnippets.length > 0 ? (
+        {pathSnippets.length ? (
           <>{extraBreadcrumbItems}</>
         ) : (
           <Breadcrumb.Item>
