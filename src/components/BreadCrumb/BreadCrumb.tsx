@@ -9,14 +9,13 @@ const BreadCrumb: FC = () => {
   const pathSnippets = location.pathname.split("/").filter((item) => item);
 
   const extraBreadcrumbItems = pathSnippets.map((name, index) => {
-    console.log(pathSnippets);
     const url = `/${pathSnippets
       .map((el) => el.split(" ").join(""))
       .map((el) => el.replace("%20", ""))
       .slice(0, index + 1)
       .join("/")}`;
     const completeName = name === "Allproducts" ? "All products" : firstLetterStrUpperCase(name.replace("%20", " "));
-    console.log(url);
+
     return (
       <Breadcrumb.Item key={url}>
         <Link to={url}>{completeName}</Link>
