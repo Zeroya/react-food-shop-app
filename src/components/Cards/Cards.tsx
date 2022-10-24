@@ -12,6 +12,10 @@ const Cards: FC = () => {
   const { data: allFreshFood, isLoading, error } = FoodApi.useFetchAllFreshFoodQuery();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     allFreshFood && dispatch(setCards(allFreshFood));
     allFreshFood && dispatch(setCategoriesValues(allFreshFood));
   }, [allFreshFood]);

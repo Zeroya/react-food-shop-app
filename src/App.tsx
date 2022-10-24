@@ -13,7 +13,8 @@ const App: FC = () => {
       <Header />
       <Routes>
         <Route path="/" element={<AllProducts />} />
-        <Route path="/product/:productId" element={<Product />} />
+        <Route path="/Allproducts" element={<AllProducts />} />
+        <Route path="/Allproducts/:productId" element={<Product />} />
         <Route path="/checkout" element={<CheckOut />} />
         <Route>404 not found</Route>
       </Routes>

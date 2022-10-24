@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect } from "react";
+import React, { FC } from "react";
 import BreadCrumb from "@components/BreadCrumb/BreadCrumb";
 import ProductsHeader from "@components/ProductsHeader/ProductsHeader";
 import Categories from "@components/Categories/Categories";
