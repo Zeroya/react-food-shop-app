@@ -3,6 +3,7 @@ import { Rate } from "antd";
 import { calcDiscountPrice } from "@utils/calcDiscountPrice";
 import { firstLetterStrUpperCase } from "@utils/firstLetterStrUpperCase";
 import buttonMark from "@assets/icons/buttonMark.svg";
+import { Link } from "react-router-dom";
 import { ICard } from "@models/ICard";
 import { HeartOutlined } from "@ant-design/icons";
 import s from "./Card.module.scss";
@@ -59,10 +60,12 @@ const Card: FC<ICard> = ({
             <p className={`${s.card_lightText} ${s.card_deliveryFontInfo}`}>Delivery {delivery}</p>
           </div>
           <div className={s.card__buttons}>
-            <button className={s.card__productButton}>
-              Product Detail
-              <img src={buttonMark} />
-            </button>
+            <Link to={`/Allproducts/${name}`}>
+              <button className={s.card__productButton}>
+                Product Detail
+                <img src={buttonMark} />
+              </button>
+            </Link>
             <button className={s.card__wishButton}>{<HeartOutlined />}Add to wish list</button>
           </div>
         </div>
