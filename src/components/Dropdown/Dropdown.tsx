@@ -24,6 +24,15 @@ const DropDown: FC<IDropDown> = (down) => {
         priceMax: priceMax,
       })
     );
+    dispatch(
+      addFilterValues({
+        category: [down.tag.toLocaleLowerCase()],
+        brand: [down.menu[Number(key) - 1].label],
+        rating: [],
+        priceMin: priceMin,
+        priceMax: priceMax,
+      })
+    );
   };
 
   return (

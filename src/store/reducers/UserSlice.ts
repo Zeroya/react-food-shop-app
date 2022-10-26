@@ -94,6 +94,9 @@ export const counterSlice = createSlice({
       state.categoryValues = state.categoryValues.map((el) => ({ ...el, checked: false }));
       state.brandValues = state.brandValues.map((el) => ({ ...el, checked: false }));
     },
+    resetBrandState: (state) => {
+      state.brandValues = state.brandValues.map((el) => ({ ...el, checked: false }));
+    },
   },
 });
 
@@ -110,6 +113,7 @@ export const {
   addCategoryValue,
   setSortValue,
   setPaginatedCards,
+  resetBrandState,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

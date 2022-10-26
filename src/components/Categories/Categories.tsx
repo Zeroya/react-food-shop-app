@@ -11,6 +11,7 @@ import {
   toggleMarkChange,
   resetFilterState,
   addCategoryValue,
+  resetBrandState,
 } from "@store/reducers/UserSlice";
 import { IFilterData } from "@models/ICard";
 import { useAppDispatch, useAppSelector } from "@hooks/hooks";
@@ -20,6 +21,7 @@ import "./checkbox.css";
 const Categories: FC = () => {
   const [price, setPrice] = useState<Array<number>>([]);
   const [reset, setReset] = useState(false);
+
   const [input, setInput] = useState<IFilterData>({
     category: [],
     brand: [],
@@ -28,13 +30,14 @@ const Categories: FC = () => {
     priceMax: Math.ceil(price[1]),
   });
 
+  const dispatch = useAppDispatch();
+
   const cards = useAppSelector((state) => state.food.cards);
   const dropDownValue = useAppSelector((state) => state.food.dropDownValue);
   const categoryValues = useAppSelector((state) => state.food.categoryValues);
   const brandValues = useAppSelector((state) => state.food.brandValues);
   const category = useAppSelector((state) => state.food.filterValues.category);
-
-  const dispatch = useAppDispatch();
+  const brand = useAppSelector((state) => state.food.filterValues.brand);
 
   const comparisonArr = category[0]?.split("").every((el) => el === el.toLowerCase());
 
@@ -80,7 +83,13 @@ const Categories: FC = () => {
   const filterReset = () => {
     starsArr.forEach((_, id) => (starsArr[id].checked = false));
     dispatch(resetFilterState());
-    setInput({ category: [], brand: [], rating: [], priceMin: Math.floor(price[0]), priceMax: Math.ceil(price[1]) });
+    setInput({
+      category: [],
+      brand: [],
+      rating: [],
+      priceMin: Math.floor(price[0]),
+      priceMax: Math.ceil(price[1]),
+    });
     setReset(!reset);
     dispatch(
       addFilterValues({
@@ -99,6 +108,7 @@ const Categories: FC = () => {
   };
 
   const categoryToggle = (value: number | string, id: number, checked: boolean, category: string) => {
+    dispatch(resetDropDownValues());
     onClick(value, category);
     toggleChange(checked, id, value, category);
   };
@@ -109,7 +119,35 @@ const Categories: FC = () => {
   }, [input]);
 
   useEffect(() => {
-    dropDownValue && filterReset();
+    dropDownValue.length && filterReset();
+    category.length &&
+      brand.length &&
+      dispatch(
+        addFilterValues({
+          category: [category[0]],
+          brand: [brand[0]],
+          rating: [],
+          priceMin: Math.floor(price[0]),
+          priceMax: Math.ceil(price[1]),
+        })
+      );
+
+    const categoryIndex = categoryValues
+      .map((el, id) => (el.value.toLocaleLowerCase() === String(category[0]).toLocaleLowerCase() ? id : el))
+      .filter((el) => typeof el === "number")
+      .join("");
+
+    const brandIndex = brandValues
+      .map((el, id) => (el.value.toLocaleLowerCase() === String(brand[0]).toLocaleLowerCase() ? id : el))
+      .filter((el) => typeof el === "number")
+      .join("");
+
+    category.length &&
+      dropDownValue.length &&
+      toggleChange(false, Number(categoryIndex), String(category[0]), SidebarCondition.category);
+    brand.length && toggleChange(false, Number(brandIndex), String(brand[0]), SidebarCondition.brand);
+
+    !brand.length && dispatch(resetBrandState());
   }, [dropDownValue]);
 
   useEffect(() => {
