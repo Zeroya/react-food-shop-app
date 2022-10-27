@@ -1,0 +1,65 @@
+@import '../../styles/variables.scss';
+
+.item {
+
+  &__imageBlock {
+    width: 50%;
+    padding-right: 45px;
+  }
+
+  &__imgWraper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2rem;
+    padding-top: 2px;
+
+    & img {
+      max-height: 880px;
+      object-fit: fill;
+      border-radius: 12px;
+    }
+
+    & img:first-child {
+      width: 100%;
+      object-fit: fill;
+      max-height: 410px;
+    }
+
+    &_pressSide {
+      display: flex;
+      justify-content: space-between;
+
+      & img {
+        width: 46% !important;
+      }
+    }
+  }
+
+  &__discount {
+    width: 100%;
+  }
+
+  &__discount {
+    display: flex;
+    gap: 1em;
+
+    & span:first-child {
+      margin-left: 1em !important;
+    }
+
+    & span {
+      font-family: $fontPoppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+      color: $cardButton;
+      background: $amountOfCategory;
+      padding: 2px 8px 2px 8px;
+      border-radius: 12px;
+      text-align: center;
+    }
+  }
+
+}

@@ -1,0 +1,121 @@
+@import '../../styles/variables.scss';
+
+.item {
+
+  &__wishList {
+    padding: 6px 12px;
+    margin-bottom: 55px;
+  }
+
+  &__wishButton {
+    display: flex;
+    gap: 0.3em;
+    align-items: center;
+    background: $cardListText;
+    border-width: 0px;
+    font-family: $fontPoppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    color: $cardTitle;
+  }
+
+}
+
+.buttonMenu {
+  display: flex;
+  margin: 0 25px 24px 0;
+  justify-content: space-between;
+  border: 1px solid $bgTags;
+  border-radius: 12px;
+  padding: 16px;
+
+  &__price {
+    & p:first-child {
+      font-family: $fontPoppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 39px;
+      color: $cardTitle;
+    }
+
+    & p:last-child {
+      font-family: $fontPoppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+      color: $cardLineThrough;
+    }
+  }
+
+  &__button {
+    display: flex;
+    padding: 4px 0;
+    gap: 16px;
+
+    &_green {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4em;
+      font-family: $fontPoppins;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 22px;
+      color: $cardListText;
+      background: $greenText;
+      border: 2px solid $cardButtonBorder;
+      border-radius: 12px;
+      padding: 12px;
+
+    }
+  }
+}
+
+.select {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: $bgInput;
+  border: 1px solid $selectBorder;
+  border-radius: 12px;
+
+  &__number {
+    padding-left: 8px;
+    width: 45px;
+    text-align: center;
+    font-family: $fontSans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: $selectBorder;
+    position: relative;
+
+    &::before {
+      border-left: 1px solid $selectBorder;
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 44px;
+    }
+
+    & div {
+      width: 2.5em !important;
+      border: none;
+
+      & div:first-child {
+        top: -70%;
+        width: 1.1em !important;
+        background: $bgInput;
+      }
+    }
+  }
+}

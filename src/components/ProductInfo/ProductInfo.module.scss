@@ -1,0 +1,175 @@
+@import '../../styles/variables.scss';
+
+.item {
+  &__imageBlock {
+    width: 50%;
+    padding-right: 45px;
+  }
+
+  &__spiner {
+    position: relative;
+
+    & span {
+      position: absolute;
+      left: 15em;
+    }
+  }
+
+  &__stars {
+    color: $cardTitle !important;
+  }
+
+  &__imgWraper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2rem;
+    padding-top: 2px;
+
+    & img {
+      max-height: 880px;
+      object-fit: fill;
+      border-radius: 12px;
+    }
+
+    & img:first-child {
+      width: 100%;
+      object-fit: fill;
+      max-height: 410px;
+    }
+
+    &_pressSide {
+      display: flex;
+      justify-content: space-between;
+
+      & img {
+        width: 46% !important;
+      }
+    }
+  }
+
+  &__discount {
+    width: 100%;
+  }
+
+  &__discount {
+    display: flex;
+    gap: 1em;
+
+    & span:first-child {
+      margin-left: 1em !important;
+    }
+
+    & span {
+      font-family: $fontPoppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+      color: $cardButton;
+      background: $amountOfCategory;
+      padding: 2px 8px 2px 8px;
+      border-radius: 12px;
+      text-align: center;
+    }
+  }
+
+  &__body {
+    width: 50%;
+  }
+
+  &__title {
+    font-family: $fontPoppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    color: $cardTitle;
+  }
+
+  &__starBlock {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+
+    & p {
+      font-family: $fontSans;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: $cardLightText;
+    }
+
+    & p:last-child {
+      align-self: auto;
+      padding-top: 7px;
+      padding-left: 5px;
+    }
+  }
+
+  &__description {
+    padding-right: 25px;
+    margin-bottom: 40px;
+    max-width: 800px;
+    font-family: $fontSans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 23px;
+    color: $cardTitle;
+  }
+
+  &__listBlock {
+    display: flex;
+    gap: 20%;
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    list-style-position: inside;
+    column-count: 2;
+
+    &_overflow {
+      display: inline-block;
+      width: 80px;
+      margin: 0 1em 0 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: $fontSans;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: $cardLightText;
+    }
+
+    &_spanBlock {
+      display: inline-block;
+      vertical-align: top;
+      font-family: $fontSans;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: $cardTitle;
+    }
+
+    &_height {
+      margin-bottom: 5px;
+
+      &:nth-child(4n+0) {
+        margin: 0;
+      }
+    }
+
+    &_greenColor {
+      color: $cardButton;
+    }
+
+    &_lineThrough {
+      text-decoration: line-through;
+      color: $cardLineThrough;
+    }
+  }
+}
