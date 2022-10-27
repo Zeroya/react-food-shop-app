@@ -131,6 +131,11 @@ const Categories: FC = () => {
           priceMax: Math.ceil(price[1]),
         })
       );
+    setInput({
+      ...input,
+      priceMin: Math.floor(price[0]),
+      priceMax: Math.ceil(price[1]),
+    });
 
     const categoryIndex = categoryValues
       .map((el, id) => (el.value.toLocaleLowerCase() === String(category[0]).toLocaleLowerCase() ? id : el))

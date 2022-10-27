@@ -8,5 +8,8 @@ export const FoodApi = createApi({
     fetchAllFreshFood: builder.query<ICard[], void>({
       query: () => "/products",
     }),
+    fetchProduct: builder.query<ICard, number>({
+      query: (id) => `/products/${id}`,
+    }),
   }),
 });
