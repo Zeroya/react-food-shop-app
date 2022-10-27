@@ -8,6 +8,15 @@
     padding-right: 45px;
   }
 
+  &__spiner {
+    position: relative;
+
+    & span {
+      position: absolute;
+      left: 15em;
+    }
+  }
+
   &__stars {
     color: $cardTitle !important;
   }
@@ -17,9 +26,9 @@
     flex-wrap: wrap;
     width: 100%;
     gap: 2rem;
+    padding-top: 2px;
 
     & img {
-      width: 46%;
       max-height: 880px;
       object-fit: fill;
       border-radius: 12px;
@@ -27,7 +36,7 @@
 
     & img:first-child {
       width: 100%;
-      object-fit: contain;
+      object-fit: fill;
       max-height: 410px;
     }
 
@@ -83,6 +92,7 @@
   &__starBlock {
     display: flex;
     align-items: center;
+    margin-bottom: 40px;
 
     & p {
       font-family: 'Open Sans';
@@ -101,7 +111,8 @@
   }
 
   &__description {
-    padding: 40px 0;
+    padding-right: 25px;
+    margin-bottom: 40px;
     max-width: 800px;
     font-family: 'Open Sans';
     font-style: normal;
@@ -114,9 +125,12 @@
   &__listBlock {
     display: flex;
     gap: 20%;
+    margin-bottom: 40px;
   }
 
   &__list {
+    list-style-position: inside;
+    column-count: 2;
 
     &_overflow {
       display: inline-block;
@@ -146,7 +160,7 @@
     &_height {
       margin-bottom: 5px;
 
-      &:last-child {
+      &:nth-child(4n+0) {
         margin: 0;
       }
     }
@@ -162,8 +176,16 @@
   }
 
   &__wishList {
-    margin-top: 24px;
     padding: 6px 12px;
+    margin-bottom: 55px;
+  }
+
+  &__wishButton {
+    display: flex;
+    gap: 0.3em;
+    align-items: center;
+    background: $cardListText;
+    border-width: 0px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -176,7 +198,7 @@
 
 .buttonMenu {
   display: flex;
-  margin-top: 40px;
+  margin: 0 25px 24px 0;
   justify-content: space-between;
   border: 1px solid $bgTags;
   border-radius: 12px;
@@ -208,6 +230,10 @@
     gap: 16px;
 
     &_green {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4em;
       font-family: 'Poppins';
       font-style: normal;
       font-weight: 700;
@@ -243,6 +269,16 @@
     font-size: 14px;
     line-height: 19px;
     color: $selectBorder;
+    position: relative;
+
+    &::before {
+      border-left: 1px solid $selectBorder;
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 44px;
+    }
 
     & div {
       width: 2.5em !important;
@@ -255,7 +291,6 @@
       }
     }
   }
-
 
   &__divider {
     border-left: 1px solid $selectBorder;

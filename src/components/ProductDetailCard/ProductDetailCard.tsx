@@ -2,9 +2,9 @@ import React, { FC, useEffect } from "react";
 import { useAppDispatch } from "@hooks/hooks";
 import { addProductDetail } from "@store/reducers/UserSlice";
 import { useParams } from "react-router-dom";
-import { Rate, Select, InputNumber } from "antd";
+import { Rate, Select, InputNumber, Spin } from "antd";
 import { calcDiscountPrice } from "@utils/calcDiscountPrice";
-import plus from "@assets/icons/Plus.svg";
+import { ReactComponent as Plus } from "@assets/icons/Plus.svg";
 import { firstLetterStrUpperCase } from "@utils/firstLetterStrUpperCase";
 import { FoodApi } from "services/FoodService";
 import s from "./ProductDetailCard.module.scss";
@@ -28,6 +28,11 @@ const ProductDetailCard: FC = () => {
 
   return (
     <div className={s.item}>
+      {isLoading && (
+        <div className={s.item__spiner}>
+          <Spin size="large" />
+        </div>
+      )}
       {product && (
         <>
           <div className={s.item__imageBlock}>
@@ -72,8 +77,6 @@ const ProductDetailCard: FC = () => {
                     <p className={s.item__list_overflow}>Color:</p>
                     <p className={`${s.item_greenColor} ${s.item__list_spanBlock}`}>White blue</p>
                   </li>
-                </ul>
-                <ul className={s.item__list}>
                   <li className={`${s.item_lightText} ${s.item__list_height}`}>
                     <p className={s.item__list_overflow}> Size: </p>
                     <p className={s.item__list_spanBlock}>
@@ -106,9 +109,6 @@ const ProductDetailCard: FC = () => {
                   <div className={s.select__number}>
                     <InputNumber size="small" min={1} max={100} defaultValue={1} bordered={false} />
                   </div>
-                  <div className={s.select__divider}>
-                    <p>.</p>
-                  </div>
                   <Select defaultValue="Psc" className="sortSelect__select">
                     {["psc"].concat(product?.shoppingListUnits).map((el) => (
                       <Option value={el}>{el}</Option>
@@ -116,12 +116,13 @@ const ProductDetailCard: FC = () => {
                   </Select>
                 </div>
                 <button className={s.buttonMenu__button_green}>
-                  <img src={plus} /> Add to cart
+                  <Plus />
+                  Add to cart
                 </button>
               </div>
             </div>
             <div className={s.item__wishList}>
-              <p>{<HeartOutlined />} Add to my wish list</p>
+              <button className={s.item__wishButton}>{<HeartOutlined />}Add to wish list</button>
             </div>
           </div>
         </>
