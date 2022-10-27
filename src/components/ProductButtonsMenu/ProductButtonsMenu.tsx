@@ -33,7 +33,7 @@ const ProductButtonsMenu: FC<{ product: ICard }> = ({ product }) => {
         </div>
       </div>
       <div className={s.item__wishList}>
-        <button className={s.item__wishButton}>{<HeartOutlined />}Add to wish list</button>
+        <button className={s.item__wishButton}>{<HeartOutlined />}Add to my wish list</button>
       </div>
     </>
   );
