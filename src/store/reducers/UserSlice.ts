@@ -15,6 +15,7 @@ interface ShopState {
   filterValues: IFilterData;
   dropDownValue: Array<string>;
   sortValue: string;
+  productDetail: Array<ICard>;
 }
 
 const initialState: ShopState = {
@@ -33,6 +34,7 @@ const initialState: ShopState = {
   },
   dropDownValue: [],
   sortValue: "",
+  productDetail: [],
 };
 
 export const counterSlice = createSlice({
@@ -94,6 +96,12 @@ export const counterSlice = createSlice({
       state.categoryValues = state.categoryValues.map((el) => ({ ...el, checked: false }));
       state.brandValues = state.brandValues.map((el) => ({ ...el, checked: false }));
     },
+    resetBrandState: (state) => {
+      state.brandValues = state.brandValues.map((el) => ({ ...el, checked: false }));
+    },
+    addProductDetail: (state, action: PayloadAction<ICard[]>) => {
+      state.productDetail = action.payload;
+    },
   },
 });
 
@@ -110,6 +118,8 @@ export const {
   addCategoryValue,
   setSortValue,
   setPaginatedCards,
+  resetBrandState,
+  addProductDetail,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

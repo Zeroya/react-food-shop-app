@@ -3,7 +3,7 @@ import frechnesecom from "@assets/icons/Freshnesecom.svg";
 import human from "@assets/icons/human.png";
 import { Input, Select } from "antd";
 import { useAppDispatch, useAppSelector } from "@hooks/hooks";
-import { addSearchValue, addDropDownValues, addCategoryValue } from "@store/reducers/UserSlice";
+import { addSearchValue, addCategoryValue, resetDropDownValues } from "@store/reducers/UserSlice";
 import { product, checkout } from "@constants";
 import { selectArr } from "mockedData/mockedData";
 import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
@@ -16,12 +16,15 @@ const Header: FC = () => {
   const [search, setSearch] = useState("");
   const categoryValues = useAppSelector((state) => state.food.categoryValues);
   const category = useAppSelector((state) => state.food.filterValues.category);
+
   const { Option } = Select;
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearch(e.target.value);
   };
 
   const onChange = (value: string) => {
+    dispatch(resetDropDownValues());
     dispatch(addCategoryValue(value));
   };
 

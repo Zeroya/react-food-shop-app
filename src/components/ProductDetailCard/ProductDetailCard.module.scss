@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.item {
+  display: flex;
+
+  &__spiner {
+    position: relative;
+
+    & span {
+      position: absolute;
+      left: 15em;
+    }
+  }
+
+  &__body {
+    width: 50%;
+  }
+
+}
