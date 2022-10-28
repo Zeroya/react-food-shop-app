@@ -92,6 +92,12 @@
   &__content {
     display: flex;
     justify-content: flex-end;
+    position: relative;
+  }
+
+  &__contentLeft {
+    position: absolute;
+    left: 0;
   }
 
   &__messageContainer {

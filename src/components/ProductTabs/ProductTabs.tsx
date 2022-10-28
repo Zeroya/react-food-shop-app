@@ -30,12 +30,14 @@ const ProductTabs: FC<{ product: ICard }> = ({ product }) => {
           </TabLink>
         </div>
         <div className={s.item__content}>
-          <TabContent for="tab1" className={s.item__tabContent}>
-            <h3>Origins</h3>
-            <p>{product.description}</p>
-            <h3>How to cook</h3>
-            <p>{product.description}</p>
-          </TabContent>
+          <div className={s.item__contentLeft}>
+            <TabContent for="tab1" className={s.item__tabContent}>
+              <h3>Origins</h3>
+              <p>{product.description}</p>
+              <h3>How to cook</h3>
+              <p>{product.description}</p>
+            </TabContent>
+          </div>
           <TabContent for="tab2" className={s.item__tabContent}>
             <div className={`${s.item__messageContainer} ${product.reviews.length < 3 && s.scrollDefault}`}>
               {product.reviews.map((el) => (
