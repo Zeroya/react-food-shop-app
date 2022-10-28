@@ -139,12 +139,12 @@ const Categories: FC = () => {
 
     const categoryIndex = categoryValues
       .map((el, id) => (el.value.toLocaleLowerCase() === String(category[0]).toLocaleLowerCase() ? id : el))
-      .filter((el) => Number.isInteger(el))
+      .filter(Number.isInteger)
       .join("");
 
     const brandIndex = brandValues
       .map((el, id) => (el.value.toLocaleLowerCase() === String(brand[0]).toLocaleLowerCase() ? id : el))
-      .filter((el) => Number.isInteger(el))
+      .filter(Number.isInteger)
       .join("");
 
     category.length &&
