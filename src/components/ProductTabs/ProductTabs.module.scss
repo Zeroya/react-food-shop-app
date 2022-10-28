@@ -24,7 +24,7 @@
       width: 33%;
       background-color: white;
       border-width: 0;
-      border-bottom: 1px solid #F5F5F5;
+      border-bottom: 1px solid $bgTags;
     }
   }
 
@@ -40,12 +40,12 @@
     gap: 0.2em;
 
     &_text {
-      font-family: 'Poppins';
+      font-family: $fontPoppins;
       font-style: normal;
       font-weight: 600;
       font-size: 18px;
       line-height: 27px;
-      color: #151515;
+      color: $cardTitle;
 
     }
 
@@ -66,21 +66,21 @@
   &__tabContent {
     &>h3 {
       margin-bottom: 8px;
-      font-family: 'Poppins';
+      font-family: $fontPoppins;
       font-style: normal;
       font-weight: 600;
       font-size: 15px;
       line-height: 22px;
-      color: #151515;
+      color: $cardTitle;
     }
 
     & p {
-      font-family: 'Open Sans';
+      font-family: $fontSans;
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
       line-height: 19px;
-      color: #151515;
+      color: $cardTitle;
       margin-bottom: 32px;
 
       &:last-child {
@@ -110,7 +110,7 @@
     width: 60%;
     float: right;
     margin-bottom: 1em;
-    background: rgb(233, 229, 229);
+    background: $messageBg;
     padding: 1em 1.5em;
     border-radius: 1em;
     position: relative;
@@ -126,15 +126,15 @@
       height: 1.8em;
       border: .5em solid white;
       border-radius: 50%;
-      background: rgb(42, 145, 59);
+      background: $cardButton;
     }
 
     &::before {
       border-top: none;
       height: .9em;
       border-radius: 0 0 50% 50% / 0 0 100% 100%;
-      background: rgb(233, 229, 229);
-      border-color: rgb(233, 229, 229);
+      background: $messageBg;
+      border-color: $messageBg;
       margin-left: -.9em;
     }
 
