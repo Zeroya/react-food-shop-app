@@ -5,6 +5,8 @@ import s from "./ProductInfo.module.scss";
 import { ICard } from "@models/ICard";
 
 const ProductInfo: FC<{ product: ICard }> = ({ product }) => {
+  const possibleUnits = product?.possibleUnits.filter((_, id) => id <= 5).join(", ");
+  const ListUnits = ["psc"].concat(product?.shoppingListUnits).join(", ");
   return (
     <div className={s.item}>
       <h2 className={s.item__title}>{firstLetterStrUpperCase(product?.name)}</h2>
@@ -34,11 +36,11 @@ const ProductInfo: FC<{ product: ICard }> = ({ product }) => {
           </li>
           <li className={`${s.item_lightText} ${s.item__list_height}`}>
             <p className={s.item__list_overflow}> Size: </p>
-            <p className={s.item__list_spanBlock}>{product.possibleUnits.filter((_, id) => id <= 5).join(", ")}</p>
+            <p className={s.item__list_spanBlock}>{possibleUnits}</p>
           </li>
           <li className={`${s.card_lightText} ${s.item__list_height}`}>
             <p className={s.item__list_overflow}>Buy by:</p>
-            <p className={s.item__list_spanBlock}>{["psc"].concat(product?.shoppingListUnits).join(", ")}</p>
+            <p className={s.item__list_spanBlock}>{ListUnits}</p>
           </li>
           <li className={`${s.item_lightText} ${s.item__list_height}`}>
             <p className={s.item__list_overflow}>Delivery:</p>

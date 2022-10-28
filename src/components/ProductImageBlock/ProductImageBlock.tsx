@@ -10,10 +10,16 @@ const ProductImageBlock: FC<{ product: ICard }> = ({ product }) => {
         <span>Free shipping</span>
       </div>
       <div className={s.item__imgWraper}>
-        <img src={`https://spoonacular.com/cdn/ingredients_500x500/${product?.image}`} alt="" />
+        <img src={`https://spoonacular.com/cdn/ingredients_500x500/${product?.image}`} alt={`${product.name} photo`} />
         <div className={s.item__imgWraper_pressSide}>
-          <img src={`https://spoonacular.com/cdn/ingredients_500x500/${product?.image}`} alt="" />
-          <img src={`https://spoonacular.com/cdn/ingredients_500x500/${product?.image}`} alt="" />
+          <img
+            src={`https://spoonacular.com/cdn/ingredients_500x500/${product?.image}`}
+            alt={`${product.name} photo`}
+          />
+          <img
+            src={`https://spoonacular.com/cdn/ingredients_500x500/${product?.image}`}
+            alt={`${product.name} photo`}
+          />
         </div>
       </div>
     </div>
