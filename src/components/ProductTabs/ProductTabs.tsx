@@ -1,21 +1,13 @@
 import React, { FC } from "react";
 import { ICard } from "@models/ICard";
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
+import { StateTabsStyle } from "styles/StateTabsStyle";
 import s from "./ProductTabs.module.scss";
 
 const ProductTabs: FC<{ product: ICard }> = ({ product }) => {
-  const styles = {
-    activeLinkStyle: {
-      borderBottom: "2px solid #333",
-    },
-    visibleTabStyle: {
-      display: "inline-block",
-    },
-  };
-
   return (
     <div className={s.item__tabs}>
-      <Tabs activeLinkStyle={styles.activeLinkStyle} visibleTabStyle={styles.visibleTabStyle}>
+      <Tabs activeLinkStyle={StateTabsStyle.activeLinkStyle} visibleTabStyle={StateTabsStyle.visibleTabStyle}>
         <div className={s.item__links}>
           <TabLink to="tab1" className={s.item__tabLink}>
             <h3 className={s.item__tabLink_text}>Description </h3>
