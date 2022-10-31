@@ -20,6 +20,7 @@
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
+    "react-tabs-redux": "^4.0.0",
     "sass": "^1.55.0",
     "typescript": "^4.8.3",
     "web-vitals": "^2.1.4"
@@ -50,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-tabs-redux": "^4.0.2",
     "gh-pages": "^4.0.0",
     "react-app-rewire-alias": "^1.1.7",
     "react-app-rewired": "^2.2.1"

@@ -8,6 +8,7 @@ import s from "./ProductDetailCard.module.scss";
 import ProductInfo from "@components/ProductInfo/ProductInfo";
 import ProductButtonsMenu from "@components/ProductButtonsMenu/ProductButtonsMenu";
 import ProductImageBlock from "@components/ProductImageBlock/ProductImageBlock";
+import ProductTabs from "@components/ProductTabs/ProductTabs";
 
 const ProductDetailCard: FC = () => {
   const { data: allFreshFood } = FoodApi.useFetchAllFreshFoodQuery();
@@ -37,6 +38,7 @@ const ProductDetailCard: FC = () => {
           <div className={s.item__body}>
             <ProductInfo product={product} />
             <ProductButtonsMenu product={product} />
+            <ProductTabs product={product} />
           </div>
         </>
       )}
