@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import BreadCrumb from "@components/BreadCrumb/BreadCrumb";
+import BreadCrumb from "@components/BreadCrumb";
 import ProductsHeader from "@components/ProductsHeader/ProductsHeader";
 import Categories from "@components/Categories/Categories";
 import Cards from "@components/Cards/Cards";

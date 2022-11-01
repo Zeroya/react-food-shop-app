@@ -66,6 +66,7 @@ const PaginationBlock: FC = () => {
     <div className={s.paginationBlock}>
       <div className={s.pagination}>
         <Pagination
+          showSizeChanger={false}
           onChange={(value) => setpageAmount(value)}
           size="small"
           pageSize={cardPerPage}
