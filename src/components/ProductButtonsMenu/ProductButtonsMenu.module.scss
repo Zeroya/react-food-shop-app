@@ -18,7 +18,12 @@
     font-weight: 700;
     font-size: 15px;
     line-height: 22px;
+    border-radius: 12px;
     color: $cardTitle;
+
+    &:hover {
+      background: $bgInput;
+    }
   }
 
 }
@@ -72,6 +77,9 @@
       border-radius: 12px;
       padding: 12px;
 
+      &:hover {
+        background: $greenButtonHover;
+      }
     }
   }
 }

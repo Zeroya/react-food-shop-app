@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import BreadCrumb from "@components/BreadCrumb/BreadCrumb";
+import BreadCrumb from "@components/BreadCrumb";
 import BillingInfo from "@components/BillingInfo/BillingInfo";
 import OrderSummary from "@components/OrderSummary/OrderSummary";
 

@@ -1,0 +1,59 @@
+@import '../../styles/variables.scss';
+
+.suggestList {
+  padding: 0 45px;
+  margin-bottom: 92px;
+
+  &__intro {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+
+  &__title {
+    font-family: $fontPoppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: $cardTitle;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    gap: 6px;
+    background: $cardListText;
+    border-radius: 12px;
+    border-width: 0px;
+    font-family: $fontPoppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    color: $cardTitle;
+
+    &:hover {
+      background: $bgInput;
+    }
+
+    &_disable {
+      color: $buttonDisable;
+
+      &:hover {
+        background: $cardListText;
+      }
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3em;
+  }
+
+}

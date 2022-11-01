@@ -1,12 +1,13 @@
 @import '../../styles/variables.scss';
 
 .item {
+
   &__tabs {
     width: calc(100% - 30px);
     display: inline-block;
     margin-right: 30px;
     vertical-align: top;
-
+    margin-bottom: 70px;
   }
 
   &__links {
