@@ -188,7 +188,7 @@ const Categories: FC = () => {
       </div>
       <div className={s.brands}>
         <h3 className={s.sidebar__topic}>Brands</h3>
-        <ul>
+        <ul className={s.brands__wrapper}>
           {brandValues.map((el, id) => {
             return (
               <li className={`${s.brands__item}`}>

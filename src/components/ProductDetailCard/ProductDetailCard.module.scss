@@ -2,13 +2,14 @@
 
 .item {
   display: flex;
+  min-height: 20vh;
 
   &__spiner {
     position: relative;
 
     & span {
       position: absolute;
-      left: 15em;
+      left: 48vw;
     }
   }
 
