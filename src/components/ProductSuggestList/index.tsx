@@ -12,9 +12,11 @@ import s from "./ProductSuggestList.module.scss";
 const ProductSuggestList: FC = () => {
   const [suggestList, setSuggestList] = useState<ICard[]>([]);
   const [counter, setCounter] = useState(4);
+
   const params = useParams();
   const dispatch = useAppDispatch();
   const { data: allFreshFood } = FoodApi.useFetchAllFreshFoodQuery();
+
   const cards = useAppSelector((state) => state.food.cards);
   const productDetail = useAppSelector((state) => state.food.productDetail);
   const productDetailCategory = useAppSelector((state) => state.food.productDetail[0]?.categoryPath);

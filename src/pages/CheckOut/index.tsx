@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import BreadCrumb from "@components/BreadCrumb";
-import BillingInfo from "@components/BillingInfo/BillingInfo";
-import OrderSummary from "@components/OrderSummary/OrderSummary";
+import BillingInfo from "@components/BillingInfo";
+import OrderSummary from "@components/OrderSummary";
 
 const CheckOut: FC = () => {
   return (

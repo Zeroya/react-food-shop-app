@@ -5,9 +5,9 @@ import { useParams } from "react-router-dom";
 import { Spin } from "antd";
 import { FoodApi } from "services/FoodService";
 import s from "./ProductDetailCard.module.scss";
-import ProductInfo from "@components/ProductInfo/ProductInfo";
-import ProductButtonsMenu from "@components/ProductButtonsMenu/ProductButtonsMenu";
-import ProductImageBlock from "@components/ProductImageBlock/ProductImageBlock";
+import ProductInfo from "@components/ProductInfo";
+import ProductButtonsMenu from "@components/ProductButtonsMenu";
+import ProductImageBlock from "@components/ProductImageBlock";
 import ProductTabs from "@components/ProductTabs";
 
 const ProductDetailCard: FC = () => {

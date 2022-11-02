@@ -4,7 +4,7 @@ import { setFilteredCards } from "@store/reducers/UserSlice";
 import { filterCardsFunc } from "@utils/filterCardsFunc";
 import { sortCardsFunc } from "@utils/sortCardsFunc";
 import { sortArr } from "mockedData/mockedData";
-import Card from "@components/Card/Card";
+import Card from "@components/Card";
 import { ICard, sortObj } from "@models/ICard";
 
 const FilteredCards: FC = () => {

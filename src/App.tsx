@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "@components/Header/Header";
-import Footer from "@components/Footer/Footer";
-import AllProducts from "@pages/AllProducts/AllProducts";
-import Product from "@pages/Product/Product";
-import CheckOut from "@pages/CheckOut/CheckOut";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
+import AllProducts from "@pages/AllProducts";
+import Product from "@pages/Product";
+import CheckOut from "@pages/CheckOut";
 import "./App.css";
 
 const App: FC = () => {

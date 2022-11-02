@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import BreadCrumb from "@components/BreadCrumb";
-import ProductsHeader from "@components/ProductsHeader/ProductsHeader";
-import Categories from "@components/Categories/Categories";
-import Cards from "@components/Cards/Cards";
-import PaginationBlock from "@components/PaginationBlock/PaginationBlock";
-import SideBar from "@components/SideBar/SideBar";
+import ProductsHeader from "@components/ProductsHeader";
+import Categories from "@components/Categories";
+import Cards from "@components/Cards";
+import PaginationBlock from "@components/PaginationBlock";
+import SideBar from "@components/SideBar";
 import useViewport from "@hooks/useViewport";
 import s from "./AllProducts.module.scss";
 

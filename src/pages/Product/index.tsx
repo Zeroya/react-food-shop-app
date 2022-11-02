@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import BreadCrumb from "@components/BreadCrumb";
 import ProductDetailCard from "@components/ProductDetailCard";
-import ProductSuggestList from "@components/ProductSuggestList/ProductSuggestList";
+import ProductSuggestList from "@components/ProductSuggestList";
 
 const Product: FC = () => {
   return (
