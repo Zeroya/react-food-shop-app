@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import Categories from "@components/Categories/Categories";
+import Categories from "@components/Categories";
 import { Drawer } from "antd";
 import type { DrawerProps } from "antd/es/drawer";
 import s from "./SideBar.module.scss";

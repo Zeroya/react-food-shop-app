@@ -106,6 +106,16 @@
   &__name {
     width: 120px;
   }
+
+  &__wrapper {
+    height: 150px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
 }
 
 .price {

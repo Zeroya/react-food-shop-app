@@ -6,7 +6,7 @@ const ProductImageBlock: FC<{ product: ICard }> = ({ product }) => {
   return (
     <div className={s.item__imageBlock}>
       <div className={s.item__discount}>
-        <span>- {product?.discount} %</span>
+        {product?.discount ? <span>- {product?.discount} %</span> : <></>}
         <span>Free shipping</span>
       </div>
       <div className={s.item__imgWraper}>

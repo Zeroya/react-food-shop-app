@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useAppSelector } from "@hooks/hooks";
-import SortSelect from "./SortSelect/SortSelect";
+import SortSelect from "./SortSelect";
 import s from "./ProductsHeader.module.scss";
 
 const ProductsHeader: FC = () => {

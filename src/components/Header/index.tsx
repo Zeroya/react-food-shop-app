@@ -9,7 +9,7 @@ import { selectArr } from "mockedData/mockedData";
 import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import s from "./Header.module.scss";
 import { Link } from "react-router-dom";
-import DropDown from "@components/Dropdown/Dropdown";
+import DropDown from "@components/Dropdown";
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();

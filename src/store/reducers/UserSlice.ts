@@ -102,6 +102,9 @@ export const counterSlice = createSlice({
     addProductDetail: (state, action: PayloadAction<ICard[]>) => {
       state.productDetail = action.payload;
     },
+    removeProductDetail: (state) => {
+      state.productDetail = [];
+    },
   },
 });
 
@@ -120,6 +123,7 @@ export const {
   setPaginatedCards,
   resetBrandState,
   addProductDetail,
+  removeProductDetail,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

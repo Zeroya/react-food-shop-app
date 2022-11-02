@@ -12,21 +12,23 @@ import s from "./ProductSuggestList.module.scss";
 const ProductSuggestList: FC = () => {
   const [suggestList, setSuggestList] = useState<ICard[]>([]);
   const [counter, setCounter] = useState(4);
+
   const params = useParams();
   const dispatch = useAppDispatch();
   const { data: allFreshFood } = FoodApi.useFetchAllFreshFoodQuery();
+
   const cards = useAppSelector((state) => state.food.cards);
   const productDetail = useAppSelector((state) => state.food.productDetail);
   const productDetailCategory = useAppSelector((state) => state.food.productDetail[0]?.categoryPath);
-
-  const spliceAmountArr = suggestList && JSON.parse(JSON.stringify(suggestList))?.splice(0, counter);
-  const buttonSwitcher = suggestList?.length < 4 || suggestList?.length - 1 < counter;
 
   const recommendedArr =
     productDetailCategory &&
     cards
       ?.filter((el) => el?.categoryPath?.some((elem) => productDetailCategory.some((element) => element === elem)))
       .filter((el) => el.name !== productDetail[0].name);
+
+  const spliceAmountArr = suggestList && JSON.parse(JSON.stringify(suggestList))?.splice(0, counter);
+  const buttonSwitcher = suggestList?.length < 4 || suggestList?.length - 1 < counter;
 
   const addSuggestProduct = () => {
     setCounter(counter + 4);
@@ -38,8 +40,11 @@ const ProductSuggestList: FC = () => {
 
   useEffect(() => {
     setSuggestList(recommendedArr);
-    return () => setSuggestList([]);
   }, [recommendedArr]);
+
+  useEffect(() => {
+    setSuggestList([]);
+  }, [params.productId]);
 
   useEffect(() => {
     window.scrollTo({
@@ -49,26 +54,32 @@ const ProductSuggestList: FC = () => {
   }, [params.productId]);
 
   return (
-    <div className={s.suggestList}>
-      <div className={s.suggestList__intro}>
-        <h1 className={s.suggestList__title}>You will maybe love</h1>
-        <button
-          onClick={addSuggestProduct}
-          className={`${s.suggestList__button} ${buttonSwitcher && s.suggestList__button_disable} `}
-        >
-          More products
-          <GreenMark />
-        </button>
-      </div>
-      <div className={s.suggestList__cards}>
-        {!suggestList?.length && (
-          <Alert message="No similar product found, sorry, keep searching other products" type="info" showIcon />
-        )}
-        {spliceAmountArr?.map((card: ICard) => (
-          <RecommendList card={card} />
-        ))}
-      </div>
-    </div>
+    <>
+      {productDetail?.length ? (
+        <div className={s.suggestList}>
+          <div className={s.suggestList__intro}>
+            <h1 className={s.suggestList__title}>You will maybe love</h1>
+            <button
+              onClick={addSuggestProduct}
+              className={`${s.suggestList__button} ${buttonSwitcher && s.suggestList__button_disable} `}
+            >
+              More products
+              <GreenMark />
+            </button>
+          </div>
+          <div className={s.suggestList__cards}>
+            {productDetail?.length && !suggestList?.length && (
+              <Alert message="No similar product found, sorry, keep searching other products" type="info" showIcon />
+            )}
+            {spliceAmountArr?.map((card: ICard) => (
+              <RecommendList card={card} />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
 
