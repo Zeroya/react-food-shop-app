@@ -6,6 +6,8 @@
 
   &__intro {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 36px;
   }
@@ -52,8 +54,32 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 3em;
   }
 
+}
+
+@media screen and (max-width: 1024px) {
+  .suggestList {
+    &__cards {
+      justify-content: flex-start;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .suggestList {
+    &__cards {
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .suggestList {
+    &__intro {
+      justify-content: center;
+    }
+  }
 }

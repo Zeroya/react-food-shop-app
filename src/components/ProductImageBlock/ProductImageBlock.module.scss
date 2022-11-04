@@ -63,3 +63,12 @@
   }
 
 }
+
+@media screen and (max-width: 810px) {
+  .item {
+    &__imageBlock {
+      width: 84%;
+      padding: 0;
+    }
+  }
+}

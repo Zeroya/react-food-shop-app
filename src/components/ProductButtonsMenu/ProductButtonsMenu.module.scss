@@ -127,3 +127,20 @@
     }
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .buttonMenu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .buttonMenu {
+    &__button {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}
