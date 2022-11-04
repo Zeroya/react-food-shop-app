@@ -110,8 +110,6 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     padding-right: 2.5em;
-
-
   }
 
   &__message {
@@ -150,10 +148,57 @@
 
 }
 
-
 .scrollDefault {
   &::-webkit-scrollbar {
     width: 0;
   }
 
+}
+
+@media screen and (max-width: 500px) {
+  .item {
+    &__links {
+      overflow: scroll;
+      scroll-behavior: smooth;
+
+      & button {
+        width: 50%;
+      }
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .item {
+    &__content {
+      min-height: 220px;
+    }
+  }
+}
+
+@media screen and (max-width: 365px) {
+  .item {
+    &__links {
+      & button {
+        width: 100%;
+      }
+    }
+
+    &__message {
+      width: 85%;
+    }
+  }
+}
+
+@media screen and (max-width: 332px) {
+  .item {
+    &__content {
+      min-height: 280px;
+    }
+  }
 }

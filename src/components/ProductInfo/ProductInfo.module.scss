@@ -173,3 +173,18 @@
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .item {
+    &__listBlock {
+      justify-content: center;
+      height: 180px;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+    }
+
+    &__list {
+      column-count: 1;
+    }
+  }
+}

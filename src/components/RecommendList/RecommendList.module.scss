@@ -102,3 +102,21 @@
     text-align: center;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 28%;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .card {
+    width: 42%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .card {
+    width: 90%;
+  }
+}

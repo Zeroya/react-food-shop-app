@@ -18,3 +18,14 @@
   }
 
 }
+
+@media screen and (max-width: 810px) {
+  .item {
+    flex-direction: column;
+    align-items: center;
+
+    &__body {
+      width: 85%;
+    }
+  }
+}
