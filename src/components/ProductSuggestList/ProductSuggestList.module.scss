@@ -78,6 +78,8 @@
 
 @media screen and (max-width: 480px) {
   .suggestList {
+    padding: 0 5px;
+
     &__intro {
       justify-content: center;
     }

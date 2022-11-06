@@ -173,6 +173,14 @@
   }
 }
 
+@media screen and (max-width: 426px) {
+  .item {
+    &__message {
+      width: 100%;
+    }
+  }
+}
+
 @media screen and (max-width: 380px) {
   .item {
     &__content {
@@ -187,10 +195,6 @@
       & button {
         width: 100%;
       }
-    }
-
-    &__message {
-      width: 85%;
     }
   }
 }
