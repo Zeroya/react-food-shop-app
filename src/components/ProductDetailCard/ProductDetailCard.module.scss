@@ -24,6 +24,12 @@
     flex-direction: column;
     align-items: center;
 
+    &__spiner {
+      & span {
+        left: 50%;
+      }
+    }
+
     &__body {
       width: 85%;
     }
